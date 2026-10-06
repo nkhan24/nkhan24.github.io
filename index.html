@@ -29,17 +29,20 @@
       <p class="hero-eyebrow">Engineering Portfolio</p>
       <h1 class="hero-name">Naeem Khan</h1>
       <p class="hero-title">Mechanical Engineer Specialising in Automotive Engineering</p>
-      <p class="hero-subheading"> Mechanical Engineer · Vehicle Dynamics &amp; Simulation</p>
+      <p class="hero-subheading">Vehicle Dynamics &amp; Simulation</p>
       <p class="hero-summary">
         I build vehicle models and integrate them into driver-in-the-loop simulators
         to analyse how a vehicle behaves at its limits and how the driver responds.
         This builds on three years in wheel design and release at Ford Motor Company
-        (via Caresoft Global) and five years as a volunteer sim-racing engineer with
+        (via Caresoft Global) and approximately five years as a volunteer sim-racing engineer with
         Williams F1 Team Gaming.
       </p>
 
       <ul class="hero-tags">
+        <li>Automotive Engineering</li>
+        <li>Motorsport Engineering</li>
         <li>Vehicle Dynamics</li>
+        <li>Vehicle Simulation</li>
         <li>Driver-in-the-Loop</li>
         <li>MATLAB / Simulink</li>
         <li>Tyres &amp; Wheels</li>
@@ -63,14 +66,121 @@
         </div>
         <div>
           <dt>Experience/Volunteering</dt>
-          <dd>3 years, Ford Motor Company</dd>
-          <dd>5 years, Williams F1 Team Gaming</dd>
+          <dd>~3 years, Ford Motor Company</dd>
+          <dd>~5 years, Williams F1 Team Gaming</dd>
         </div>
         <div>
           <dt>Availability</dt>
           <dd>Available now · UK, willing to relocate</dd>
         </div>
       </dl>
+    </section>
+        <!-- ===== Key highlights ===== -->
+    <section class="highlights" aria-label="Key highlights">
+      <ol class="highlight-list">
+        <li>
+          <span class="hl-num">10 + 1</span>
+          <span class="hl-text">Wheel and jack designs taken through design-verification sign-off, Ford Transit V710 programme</span>
+        </li>
+        <li>
+          <span class="hl-num">P4 ×2</span>
+          <span class="hl-text">Consecutive fourth-place finishes, F1 Sim Racing Teams' Championship, Atlassian Williams F1 Team Gaming</span>
+        </li>
+         <li>
+          <span class="hl-num">~50%</span>
+          <span class="hl-text">Drop in predicted HGV wheel-lift threshold at roll resonance, found with my real-time driver-in-the-loop simulator</span>
+        </li>
+        <li>
+          <span class="hl-num">First</span>
+          <span class="hl-text">MEng Mechanical Engineering, Lancaster University (75%)</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="section">
+      <p class="eyebrow">Projects</p>
+      <h2 class="section-title">Selected work</h2>
+
+      <div class="card-grid">
+
+        <article class="card">
+            <img class="card-img card-img--dil" src="assets/images/projects/dil-cockpit.webp"
+               alt="Driver's view of the HGV simulator in Unreal Engine, with the rollover-warning HUD"
+               width="1600" height="450" loading="lazy">
+          <p class="card-tag">MSc Thesis</p>
+          <h3 class="card-title">HGV Driver Simulator for Roll Stability</h3>
+          <p class="card-meta">Cranfield University · 2026 · Individual research project</p>
+          <p class="card-summary">Real-time driver-in-the-loop simulator that estimates how close a 28.8-tonne 8×8 test truck is to wheel lift while it is being driven.</p>
+          <ul class="card-points">
+            <li>Built a four-axle, two-axle-steered lateral model coupled to single-DoF roll and longitudinal dynamics in MATLAB/Simulink</li>
+            <li>Drove it live from a Moza wheel and pedals, with Simulink overriding Unreal Engine physics and a HUD warning at rollover index 0.8</li>
+            <li>Verified within 0.2% of the analytical solution; yaw rate validated against test-truck data (NRMSE 14.8–16.5%)</li>
+            <li>Found that the inherited roll inertia implied a negative value under the parallel-axis check, and revised it to 1.92&times;10<sup>5</sup>&nbsp;kg&middot;m<sup>2</sup></li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> The predicted wheel-lift threshold roughly halves, from ~0.4&nbsp;g to ~0.2&nbsp;g, at the 0.8–0.9&nbsp;Hz roll resonance. CoG height and longitudinal position are the dominant sensitivities.</p>
+          <ul class="card-tools"><li>MATLAB</li><li>Simulink</li><li>Unreal Engine</li><li>Blender</li></ul>
+        </article>
+
+        <article class="card">
+          <p class="card-tag">Motorsport</p>
+          <h3 class="card-title">Sim-Racing Performance Engineering</h3>
+          <p class="card-meta">Atlassian Williams F1 Team Gaming · 2022–2026 · Volunteer sim-racing engineer</p>
+          <p class="card-summary">Telemetry-led setup and performance engineering for the official Williams Racing esports team.</p>
+          <ul class="card-points">
+            <li>Analysed lap-time losses across 20+ circuits using MoTeC and bespoke telemetry tools</li>
+            <li>Assessed balance, rotation, braking and traction from telemetry and structured driver feedback</li>
+            <li>Turned findings into setup changes, including spring and anti-roll-bar stiffness</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Two consecutive fourth-place finishes in the F1 Sim Racing Teams' Championship against nine other teams.</p>
+          <ul class="card-tools"><li>MoTeC</li><li>Telemetry analysis</li><li>Setup engineering</li></ul>
+        </article>
+
+        <article class="card">
+          <p class="card-tag">Industry</p>
+          <h3 class="card-title">Wheels &amp; Jack Design and Release</h3>
+          <p class="card-meta">Ford Motor Company (via Caresoft Global) · 2022–2025 · Design &amp; Release Engineer</p>
+          <p class="card-summary">Production design release of wheels and jacks for Ford's global Transit programmes.</p>
+          <ul class="card-points">
+            <li>Reviewed supplier CAD models and drawings in CATIA V5 against fit, interface, manufacturing and GD&amp;T requirements</li>
+            <li>Defined DVP&amp;R test requirements and acceptance criteria, and reviewed test evidence</li>
+            <li>Resolved component issues across design, test and supplier teams</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Design-verification sign-off for 10 wheel designs and one jack design on the Transit V710 programme, within programme timing.</p>
+          <ul class="card-tools"><li>CATIA V5</li><li>Teamcenter</li><li>DVP&amp;R</li><li>DFMEA</li><li>GD&amp;T</li></ul>
+        </article>
+
+        <article class="card">
+            <img class="card-img card-img--drawing" src="assets/images/projects/gdp-steel-wheel.webp"
+               alt="Engineering drawing of the 13 × 4.5B steel wheel selected for the quadricycle concept"
+               width="1600" height="1131" loading="lazy">
+          <p class="card-tag">Group Project</p>
+          <h3 class="card-title">Quadricycle Vehicle &amp; Mobility Service</h3>
+          <p class="card-meta">Cranfield University · 2026 · Vehicle dynamics and wheel/tyre integration</p>
+          <p class="card-summary">Conceptual design of a quadricycle and the mobility service built around it.</p>
+          <ul class="card-points">
+            <li>Evaluated handling and component loads with first-principles calculations, MATLAB/Simulink and IPG CarMaker</li>
+            <li>Led wheel and tyre integration in CATIA V5</li>
+          </ul>
+            <p class="card-result"><strong>Result:</strong> Specified a 155/65&nbsp;R13 tyre on a 13&nbsp;×&nbsp;4.5B steel wheel (5.5&nbsp;kg) for the final vehicle concept.</p>
+          <ul class="card-tools"><li>MATLAB/Simulink</li><li>IPG CarMaker</li><li>CATIA V5</li></ul>
+        </article>
+
+        <article class="card">
+          <p class="card-tag">Formula Student</p>
+          <h3 class="card-title">Wheel Assemblies &amp; Uprights</h3>
+          <p class="card-meta">Lancaster University · 2021 · Wheel Assemblies and Structures Engineer</p>
+          <p class="card-summary">Uprights and suspension-interface components for the university Formula Student car.</p>
+          <ul class="card-points">
+            <li>Designed uprights and mounting brackets in SolidWorks from first-principles load calculations</li>
+            <li>Verified structural performance in ANSYS</li>
+            <li>Delivered manufacture-ready drawings with tolerances and design-for-manufacture considerations</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Uprights manufactured, fitted to the car, achieving 4% weight reduction to previous design.</p>
+          <ul class="card-tools"><li>SolidWorks</li><li>ANSYS</li></ul>
+        </article>
+
+      </div>
     </section>
   </main>
 
