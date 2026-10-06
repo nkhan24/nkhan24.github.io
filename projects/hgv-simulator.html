@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HGV Driver Simulator for Roll Stability | Naeem Khan</title>
+  <meta name="description" content="Real-time driver-in-the-loop simulator estimating rollover proximity for a four-axle 8x8 test truck. MSc thesis, Cranfield University, 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <!-- ===== Title block ===== -->
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">MSc Thesis · Cranfield University · 2026</p>
+    <h1 class="detail-title">HGV Driver Simulator for Roll Stability</h1>
+    <p class="detail-lead">A reduced-order, real-time driver-in-the-loop simulator that estimates how close a four-axle 8&times;8 test truck is to wheel lift while it is being driven.</p>
+
+    <figure class="figure">
+      <img src="../assets/images/projects/dil-cockpit.webp"
+           alt="Driver's view in Unreal Engine with the HUD showing roll angle, load-transfer ratio, speed and warning state"
+           width="1600" height="450">
+      <figcaption>Driver's view in Unreal Engine. The HUD shows roll angle, load-transfer ratio (LTR) and the warning state live.</figcaption>
+    </figure>
+
+    <!-- ===== Key figures ===== -->
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">0.2%</span><span class="hl-text">Implementation error against the analytical steady-state solution (1° steer, 20&nbsp;m/s)</span></li>
+      <li><span class="hl-num">14.8%</span><span class="hl-text">Yaw-rate NRMSE against measured test-truck data, slalom (16.5% sustained cornering)</span></li>
+      <li><span class="hl-num">~50%</span><span class="hl-text">Predicted drop in wheel-lift threshold at the 0.8–0.9&nbsp;Hz roll resonance</span></li>
+      <li><span class="hl-num">60+&nbsp;FPS</span><span class="hl-text">Coupled real-time run at reduced visual settings (35–45&nbsp;FPS at full)</span></li>
+    </ol>
+
+    <!-- ===== 1. Problem ===== -->
+    <section class="detail-section">
+      <h2>The problem</h2>
+      <p>The test vehicle is a modified Rosenbauer Panther 8&times;8 with a roof-mounted test asset. With a mass of 28,828&nbsp;kg, a centre of gravity 3.27&nbsp;m above the ground and a 2.5&nbsp;m track, its static stability factor is</p>
+      <p class="equation">SSF = T / 2h = 2.5 / (2 &times; 3.27) = 0.382</p>
+      <p>That means wheel unloading begins at roughly 0.38&nbsp;g (3.75&nbsp;m/s²) in a quasi-static manoeuvre, which is low enough to reach in ordinary driving.</p>
+      <blockquote class="research-q">Can a reduced-order, real-time model reproduce the vehicle's lateral and roll response and provide a continuous estimate of proximity to wheel unloading for driver-in-the-loop use?</blockquote>
+    </section>
+
+    <!-- ===== 2. What I built ===== -->
+    <section class="detail-section">
+      <h2>What I built</h2>
+      <ul class="detail-list">
+        <li><strong>Vehicle model</strong>: a four-axle single-track lateral/yaw model with two steered axles (&delta;<sub>2</sub> = 0.41&nbsp;&delta;<sub>1</sub>), coupled to single-DoF roll about a fixed axis and point-mass longitudinal speed, in MATLAB/Simulink.</li>
+        <li><strong>Rollover index</strong>: a continuous dynamic load-transfer ratio, with a HUD warning at LTR&nbsp;&ge;&nbsp;0.80 to leave margin for the transient peak, which runs about 13% above the quasi-static value.</li>
+        <li><strong>Driver-in-the-loop rig</strong>: Moza wheel, pedals and P–R–N–D selector drive the Simulink model (fixed-step ode3, 60&nbsp;Hz), which overrides Unreal Engine's own vehicle physics.</li>
+        <li><strong>Environment</strong>: Cotswold Airfield, traced in Blender and imported into Unreal Engine.</li>
+        <li><strong>Parameter provenance</strong>: every parameter classed as measured, derived, predecessor study, literature or assumed, so the confidence in each input is explicit.</li>
+      </ul>
+
+      <figure class="figure">
+        <img src="../assets/images/projects/dil-airfield.webp"
+             alt="Top-down view of the Cotswold Airfield environment modelled in Blender and imported into Unreal Engine"
+             width="1600" height="916" loading="lazy">
+        <figcaption>Cotswold Airfield environment, traced in Blender and imported into Unreal Engine.</figcaption>
+      </figure>
+
+      <h3>Why a reduced-order model?</h3>
+      <p>IPG CarMaker's passenger-car architecture couldn't represent four axles, TruckMaker wasn't licensed to the project, and a full multibody model would have needed hardpoints, bushes and tyre data that weren't available. A higher-order model built on unvalidated parameters would add degrees of freedom without adding credibility, so the model fidelity was matched to the evidence available.</p>
+    </section>
+
+    <!-- ===== 3. Verification & validation ===== -->
+    <section class="detail-section">
+      <h2>Verification and validation</h2>
+      <p><strong>Verification</strong> checks the model was implemented correctly, against the analytical solution. <strong>Validation</strong> checks it matches the real vehicle, against measured test data.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Check</th><th>Output</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Verification: 1° steer, 20&nbsp;m/s</td><td>Yaw rate, lateral acceleration, roll angle</td><td>Within 0.2% of the analytical solution</td></tr>
+            <tr><td>Validation: TEST&nbsp;25 slalom</td><td>Yaw rate</td><td>NRMSE 14.8%</td></tr>
+            <tr><td>Validation: TEST&nbsp;25 sustained cornering</td><td>Yaw rate</td><td>NRMSE 16.5%</td></tr>
+            <tr><td>Validation: TEST&nbsp;25</td><td>Lateral acceleration</td><td>NRMSE 21.9–25.8%</td></tr>
+            <tr><td>Validation: TEST&nbsp;25, bare-truck parameters</td><td>Roll angle</td><td>NRMSE 36.6–39.9%</td></tr>
+            <tr><td>Asset-equipped configuration</td><td>Roll angle</td><td>Not validated: no configuration-matched test data</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">NRMSE is the RMS error divided by the RMS of the measured signal. Timing and direction are reproduced, and the remaining error is mainly in magnitude.</p>
+    </section>
+
+    <!-- ===== 4. Results ===== -->
+    <section class="detail-section">
+      <h2>Results</h2>
+      <ul class="detail-list">
+        <li><strong>Roll resonance halves the threshold.</strong> The predicted wheel-lift threshold is about 0.4&nbsp;g for slow steering, but falls to about 0.2&nbsp;g near the 0.8–0.9&nbsp;Hz roll mode.</li>
+        <li><strong>CoG height dominates rollover.</strong> Sweeping CoG height from 2.6 to 3.9&nbsp;m raises the peak LTR under a 0.3&nbsp;g ramp from 0.66 to 1.05, which is predicted wheel lift.</li>
+        <li><strong>Longitudinal CoG dominates handling.</strong> Moving the CoG from 2.47 to 5.07&nbsp;m aft of axle 1 takes the understeer gradient from +2.97 to &minus;4.44&nbsp;deg/g, with neutral steer at about 3.58&nbsp;m.</li>
+        <li><strong>Mass matters less.</strong> Varying mass from 23.3 to 31.3&nbsp;t moves the understeer gradient only from +0.23 to +0.31&nbsp;deg/g.</li>
+      </ul>
+    </section>
+
+    <!-- ===== 5. Engineering judgement ===== -->
+    <section class="detail-section">
+      <h2>Checking inherited data</h2>
+      <p>The roll inertia inherited from the identification report, 1.65&times;10<sup>4</sup>&nbsp;kg&middot;m², gave a 3.0&nbsp;Hz roll mode with &zeta;&nbsp;=&nbsp;0.75. I tested it with the parallel-axis theorem. Read as inertia about the roll axis, it implies a <em>negative</em> inertia about the CoG, which is physically impossible. Re-interpreting it as CoG inertia gives 1.92&times;10<sup>5</sup>&nbsp;kg&middot;m², a 0.89&nbsp;Hz roll mode and &zeta;&nbsp;=&nbsp;0.22. That agrees with an earlier study of the same vehicle (0.72&nbsp;Hz) and with published heavy-truck data (0.93&nbsp;Hz).</p>
+    </section>
+
+    <!-- ===== 6. Limits ===== -->
+    <section class="detail-section">
+      <h2>Limitations and next steps</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Limitation</th><th>Consequence</th><th>Next step</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bare-truck test data only</td><td>Asset-equipped roll response unvalidated</td><td>Test the roof-asset configuration</td></tr>
+            <tr><td>Single-track, single roll DoF</td><td>Individual wheel unloading not resolved</td><td>Add double-track wheel and suspension states</td></tr>
+            <tr><td>Tyre data only up to 82% of rated load</td><td>Forces near lift are extrapolated</td><td>Obtain high-load tyre data</td></tr>
+            <tr><td>Frame rate measured, latency not</td><td>Driver-in-the-loop responsiveness not established</td><td>Measure end-to-end latency with a high-speed camera</td></tr>
+            <tr><td>No driver study</td><td>Training effectiveness unknown</td><td>Run controlled driver experiments</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The framework works as a real-time tool for comparing rollover proximity across configurations. It is not yet a validated warning or driver-training system.</p>
+    </section>
+
+    <!-- ===== 7. Gallery ===== -->
+    <section class="detail-section">
+      <h2>On the airfield</h2>
+      <figure class="figure figure--narrow">
+        <img src="../assets/images/projects/dil-truck.webp"
+             alt="Naeem Khan standing in front of the 8x8 test truck"
+             width="960" height="1280" loading="lazy">
+        <figcaption>With the test vehicle at Cranfield.</figcaption>
+      </figure>
+      <p><a class="btn btn-secondary" href="../assets/images/projects/dil-poster.webp" target="_blank" rel="noopener">View project poster</a></p>
+    </section>
+
+    <p class="detail-tools"><strong>Tools:</strong> MATLAB, Simulink, Unreal Engine, Blender, Moza wheel and pedals</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+</body>
+</html>
