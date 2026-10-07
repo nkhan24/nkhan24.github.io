@@ -287,3 +287,52 @@ a { color: inherit; }
 .data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
 .data-table th, .data-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .data-table th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+
+/* ===== 15. Anchor scrolling ===== */
+html { scroll-behavior: smooth; }
+.section { scroll-margin-top: 72px; }   /* stop the sticky 60px nav covering section headings */
+
+/* ===== 16. Experience timeline ===== */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;   /* date column | content */
+  gap: 24px;
+  padding: 0 0 32px 24px;
+}
+.timeline-item::before {               /* orange dot sitting on the line */
+  content: "";
+  position: absolute;
+  left: -7px;                          /* centre of a 12px dot on the 2px line: -1px - 6px */
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline-date { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.timeline-role { margin: 0; font-size: 1.1rem; }
+.timeline-org { margin: 2px 0 8px; color: var(--muted); font-size: 0.9rem; }
+.timeline-item p:last-child { margin-bottom: 0; }
+
+/* ===== 17. Skills ===== */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+.skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.skill-group h3 { margin: 0 0 12px; font-size: 1rem; }
+.skill-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-list li { font-size: 0.85rem; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--muted); }
+
+/* ===== 18. Contact and footer ===== */
+.contact-lead { max-width: 60ch; margin: 0 0 24px; }
+.site-footer { border-top: 1px solid var(--line); text-align: center; padding: 24px 16px; color: var(--muted); font-size: 0.85rem; }
+
+/* ===== 19. Phones ===== */
+@media (max-width: 700px) {
+  .timeline-item { grid-template-columns: 1fr; gap: 4px; }   /* date above the content instead of beside it */
+}
