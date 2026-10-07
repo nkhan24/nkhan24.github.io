@@ -336,3 +336,17 @@ html { scroll-behavior: smooth; }
 @media (max-width: 700px) {
   .timeline-item { grid-template-columns: 1fr; gap: 4px; }   /* date above the content instead of beside it */
 }
+/* ===== 20. Contact email fallback ===== */
+.contact-email { margin: 16px 0 0; color: var(--muted); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.copy-btn {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.copy-btn:hover { border-color: var(--text); }
+.copy-status { font-size: 0.85rem; color: var(--accent); }
