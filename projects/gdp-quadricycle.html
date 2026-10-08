@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadricycle Wheels &amp; Tyres | Naeem Khan</title>
+  <meta name="description" content="Wheel and tyre selection and tyre modelling for an L7e Mobility-as-a-Service quadricycle. Cranfield MSc Group Design Project, 2026.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quadricycle Wheels &amp; Tyres | Naeem Khan">
+  <meta property="og:description" content="Wheel and tyre selection and tyre modelling for an L7e Mobility-as-a-Service quadricycle. Cranfield MSc Group Design Project, 2026.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/gdp-quadricycle.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/gdp-steel-wheel.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">Group Design Project · Cranfield University · 2026</p>
+    <h1 class="detail-title">Quadricycle Wheels &amp; Tyres</h1>
+    <p class="detail-lead">Wheel and tyre selection, tyre modelling and a tyre life-cycle review for an L7e quadricycle, designed for a Mobility-as-a-Service fleet running between Cranfield and Milton Keynes.</p>
+
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">330&nbsp;kg</span><span class="hl-text">Front design load per wheel: 800&nbsp;kg laden, 55/45 split, 1.5 load factor</span></li>
+      <li><span class="hl-num">10.6%</span><span class="hl-text">Load headroom of the chosen tyre (LI&nbsp;73, 365&nbsp;kg), kept deliberately small</span></li>
+      <li><span class="hl-num">±27%</span><span class="hl-text">Cornering-stiffness uncertainty, carried into the handling analysis</span></li>
+      <li><span class="hl-num">2.4&nbsp;kg</span><span class="hl-text">Unsprung mass saved by choosing 155/65 over 155/70 R13</span></li>
+    </ol>
+
+    <section class="detail-section">
+      <h2>My role</h2>
+      <ul class="detail-list">
+        <li><strong>Deputy Engineer, Vehicle Dynamics</strong>: oversaw the steering, brakes, suspension and ride-dynamics work within the department, and set agendas, project plans and weekly status updates with the Chief Engineer.</li>
+        <li><strong>Wheels and tyres engineer</strong>: owned tyre and wheel selection and gave the brakes, steering, chassis and powertrain teams one consistent set of tyre envelope and rolling-radius figures to work from.</li>
+        <li><strong>Failure mode avoidance</strong>: led it across the department, identifying likely problems and mitigations for each subsystem.</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Tyre selection</h2>
+      <p>The design load came from the worst-case mass and weight distribution the structures team provided, with a 1.5 factor to cover bumps, cornering and braking:</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Input</th><th>Front</th><th>Rear</th></tr></thead>
+          <tbody>
+            <tr><td>Laden mass, distribution</td><td colspan="2">800&nbsp;kg, 55/45</td></tr>
+            <tr><td>Static load per wheel</td><td>2160&nbsp;N</td><td>1770&nbsp;N</td></tr>
+            <tr><td>Design load per wheel (&times;1.5)</td><td>330&nbsp;kg</td><td>270&nbsp;kg</td></tr>
+            <tr><td>Minimum load index</td><td>70</td><td>63</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>From a market search across six retailers I chose a <strong>155/65&nbsp;R13&nbsp;73T all-season</strong> tyre. All-season suits a shared fleet: no seasonal changeovers, so more uptime. Load index 73 (365&nbsp;kg) clears the 330&nbsp;kg requirement by 10.6%. A much higher index would mean a heavier, stiffer carcass, adding unsprung mass and making the ride harsher. The 155/65 also has a lower sidewall than the 155/70 alternative, saving about 0.6&nbsp;kg per tyre.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Wheel selection</h2>
+      <p>A Pugh matrix compared steel, aluminium and steel-with-cover wheels on weight, cost, repairability, maintenance, durability and carbon footprint. Steel won: it costs less to buy, is easier to repair, and copes better with knocks in fleet use, at the cost of extra unsprung mass. The chosen part is an off-the-shelf <strong>13&nbsp;&times;&nbsp;4.5 ET36, 4&nbsp;&times;&nbsp;100 PCD</strong> steel wheel with M12 grade 10.9 bolts, so no tooling cost. Fixing the PCD meant the suspension engineer could start the hub design.</p>
+      <figure class="figure">
+        <a href="../assets/images/projects/gdp-steel-wheel.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/gdp-steel-wheel.webp"
+               alt="2D engineering drawing of the 13-inch steel wheel with section, front and isometric views"
+               width="1600" height="1131" loading="lazy">
+        </a>
+        <figcaption>Wheel drawing. Click to open full size.</figcaption>
+      </figure>
+      <figure class="figure">
+        <a href="../assets/images/projects/gdp-tyre.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/gdp-tyre.webp"
+               alt="2D engineering drawing of the 155/65 R13 tyre with front, isometric and top views"
+               width="1600" height="1131" loading="lazy">
+        </a>
+        <figcaption>Tyre drawing, 155/65&nbsp;R13. Click to open full size.</figcaption>
+      </figure>
+    </section>
+
+    <section class="detail-section">
+      <h2>Modelling the tyre without test data</h2>
+      <p>There was no measured force-slip data for this tyre, so a Magic Formula fit wasn't possible. CarMaker could generate a tyre model, but the software itself flagged it as not validated. I used a linear model instead (F<sub>y</sub>&nbsp;=&nbsp;C<sub>&alpha;</sub>&nbsp;&alpha;, with C<sub>&alpha;</sub>&nbsp;=&nbsp;nF<sub>z</sub>), sweeping the normalised cornering coefficient across the typical passenger-car range at unladen (450&nbsp;kg), part-laden (650&nbsp;kg) and fully laden (800&nbsp;kg) mass.</p>
+      <p class="equation">n = 0.15 &plusmn; 0.04&nbsp;deg<sup>&minus;1</sup> &nbsp;&rArr;&nbsp; C<sub>&alpha;</sub> uncertainty &asymp; &plusmn;27%</p>
+      <p>The main lesson was treating cornering stiffness as the <em>output of a method</em> with its own uncertainty, not a single number to look up. A sidewall-geometry regression (Hewson, 2005) gave &plusmn;30%, and a distribution across typical passenger cars (Gillespie, 1992) gave &plusmn;27%. The two methods aren't interchangeable, and neither captures how stiffness changes with vertical load. So the analysis was limited to primary handling, and the uncertainty band was carried into the ride-dynamics engineer's understeer-gradient work rather than hidden.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Simulation and sustainability</h2>
+      <ul class="detail-list">
+        <li><strong>CarMaker</strong>: set up with the simulation engineer to run M1-style steady-state cornering, split-&mu; braking, rollover and slalom tests. Because the tyre model wasn't validated, these were used for qualitative safety checks only, not for tyre-force results.</li>
+        <li><strong>Tyre life-cycle review</strong>: the literature showed that production (carbon black, synthetic rubber) and the use phase (rolling resistance, wear) dominate a tyre's impact, not end-of-life. Wear particulates were estimated with the EEA Guidebook's method.</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Limitations and next steps</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Limitation</th><th>Next step</th></tr></thead>
+          <tbody>
+            <tr><td>No tyre force data, so a linear model only</td><td>Rig-test a 155/65&nbsp;R13 across the quadricycle's axle-load range and fit a Magic Formula model</td></tr>
+            <tr><td>Load sensitivity of cornering stiffness not captured</td><td>Use the fitted model to check secondary handling, when weight transfer changes the tyre loads</td></tr>
+            <tr><td>Wheel-bolt FEA not completed</td><td>Run FEA on the 4-bolt design and on a 3-bolt alternative (as on the 2009 Smart Fortwo) to see whether parts can be cut</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="detail-tools"><strong>Tools:</strong> IPG CarMaker, CATIA V5, Pugh matrix, ETRTO and UNECE standards</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>
