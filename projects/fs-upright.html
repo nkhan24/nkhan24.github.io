@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula Student Front Upright | Naeem Khan</title>
+  <meta name="description" content="Front upright and brackets for Lancaster e-Racing's 2021 electric Formula Student car: load cases, FEA, design for manufacture.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Formula Student Front Upright | Naeem Khan">
+  <meta property="og:description" content="Front upright and brackets for Lancaster e-Racing's 2021 electric Formula Student car: load cases, FEA, design for manufacture.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/fs-upright.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/fs-upright-cad.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">Formula Student · Lancaster e-Racing · 2020–21</p>
+    <h1 class="detail-title">Front Upright &amp; Brackets</h1>
+    <p class="detail-lead">A front upright and its wishbone and steering brackets, designed from scratch for a new suspension geometry on Lancaster's 2021 electric Formula Student car, then machined in-house.</p>
+
+        <figure class="figure">
+      <a href="../assets/images/projects/fs-upright-cad.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/fs-upright-cad.webp"
+             alt="Manufacturing drawing E21.S1049_01A of the front left upright, showing detail views, dimensions and isometric views; material 6061 aluminium"
+             width="1353" height="958" loading="lazy">
+      </a>
+      <figcaption>Manufacturing drawing for the front left upright (E21.S1049_01A), 6061 aluminium. Click to open full size.</figcaption>
+    </figure>
+
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">1.5</span><span class="hl-text">Safety-factor target in every load case (160&nbsp;MPa limit for 6061 aluminium)</span></li>
+      <li><span class="hl-num">0.53&nbsp;mm</span><span class="hl-text">Peak deflection under maximum braking, against a 1&nbsp;mm limit</span></li>
+      <li><span class="hl-num">3</span><span class="hl-text">Design load cases: maximum cornering, maximum braking and 3&nbsp;g bump</span></li>
+      <li><span class="hl-num">2.35°</span><span class="hl-text">Camber adjustment built in through a removable shim</span></li>
+    </ol>
+
+    <section class="detail-section">
+      <h2>Requirements</h2>
+      <ul class="detail-list">
+        <li><strong>Strength</strong>: safety factor of at least 1.5 under maximum cornering, maximum braking and a 3&nbsp;g bump.</li>
+        <li><strong>Stiffness</strong>: total upright and bracket deflection no more than 1&nbsp;mm, because extra movement shifts the rod-end positions and changes how the car handles.</li>
+        <li><strong>Packaging</strong>: fit inside a 248.2&nbsp;mm rim, with the wishbone and steering pick-up points located exactly where the new suspension geometry needed them.</li>
+        <li><strong>Rules</strong>: Formula Student T10.2 positive locking on critical fasteners, so nyloc nuts with at least two full threads showing.</li>
+        <li><strong>Manufacture</strong>: machinable on the department's CNC mill without repeated re-fixturing.</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Design</h2>
+      <ul class="detail-list">
+        <li><strong>Materials</strong>: 6061 aluminium for the upright body to keep unsprung mass down; EN24T steel (&sigma;<sub>y</sub>&nbsp;=&nbsp;650&nbsp;MPa) for the heavily loaded wishbone brackets; a 4&nbsp;mm aluminium steering bracket, waterjet-cut and welded into a U shape.</li>
+        <li><strong>Iterative light-weighting</strong>: started from a solid block linking the mounting points, ran FEA, then removed material wherever it was under-stressed. The bearing walls were kept thick and the brake-mount roots filleted to ease stress concentrations.</li>
+        <li><strong>Carried over</strong>: only the bearings (two TIMKEN X30206M) and the bearing housing. The rest of the upright is new.</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Loads and analysis</h2>
+      <p>Upright loads were calculated with the method in Seward's <em>Race Car Design</em> (2014): the top wishbone mount is fixed and the bottom mount is free to move vertically. Tyre forces act through the bearing, braking forces act through the calliper bolts, and the bearing interference fit is applied as a pressure on the housing. The FEA used a 1&nbsp;mm mesh, and refining it further changed the braking deflection by 0.04%.</p>
+      <figure class="figure">
+        <img src="../assets/images/projects/fs-upright-stress.webp"
+             alt="Von Mises stress contour on the front upright under maximum braking, inner and outer faces"
+             width="1014" height="772" loading="lazy">
+        <figcaption>Von Mises stress under maximum braking, the worst-case load.</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Load case</th><th>Deflection</th><th>Main-body stress</th></tr></thead>
+          <tbody>
+            <tr><td>Maximum braking</td><td>0.526&nbsp;mm</td><td>Peaks of 155–160&nbsp;MPa, at the limit</td></tr>
+            <tr><td>Maximum cornering</td><td>0.102&nbsp;mm</td><td>Within limit</td></tr>
+            <tr><td>3&nbsp;g bump</td><td>0.0325&nbsp;mm</td><td>Minimum safety factor 3.44</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Limits of the analysis</h2>
+      <p>The bracket bolt holes were modelled as idealised fixed supports, which produces stress singularities: local peaks above the limit that come from the boundary condition rather than the part. These were excluded, and the main body was assessed against the 1.5 target. The better approach is a full bolted assembly with preload and frictional contact. It was attempted but not finished before the manufacturing deadline. The steering bracket deflected 1.255&nbsp;mm against the 1&nbsp;mm target; that was accepted because the load inputs were deliberately conservative and thicker material would have caused manufacturing problems.</p>
+    </section>
+
+    <section class="detail-section">
+      <h2>Manufacture</h2>
+      <p>The upright bodies and wishbone brackets were CNC-machined in the department, and the bearings pressed in with a hydraulic press. Because of COVID-19, manufacturing could only start six weeks before the event, so the design was deliberately kept to geometry that could be machined in a single set-up.</p>
+    </section>
+
+    <p class="detail-tools"><strong>Tools:</strong> SolidWorks, ANSYS Mechanical, CNC milling, waterjet cutting</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>
