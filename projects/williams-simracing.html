@@ -59,6 +59,63 @@
       </ul>
     </section>
 
+        <section class="detail-section">
+      <h2>Example: building an aero map in F1&nbsp;25</h2>
+      <p>The game gives no aero data, so I measured it. On a long, smooth straight (Mexico City), the car runs at about 200&nbsp;km/h to read the front and rear wheel loads, then coasts down in neutral to read the deceleration. A stationary reading gives the static loads, and a low-speed coast-down gives the rolling resistance. One setting changes per run.</p>
+      <p class="equation">C<sub>L</sub>A = (L<sub>F</sub> + L<sub>R</sub>) / &frac12;&rho;V&sup2;<br>
+        C<sub>D</sub>A = (M&middot;g&middot;G<sub>long</sub> &minus; F<sub>rolling</sub>) / &frac12;&rho;V&sup2;<br>
+        Aero balance = 100&middot;L<sub>F</sub> / (L<sub>F</sub> + L<sub>R</sub>)</p>
+      <p>L<sub>F</sub> and L<sub>R</sub> are the front and rear aero loads (wheel load at speed minus static load). The method follows Segers, <em>Analysis Techniques for Racecar Data Acquisition</em> (SAE International, 2014), chapter&nbsp;13.</p>
+
+      <figure class="figure">
+        <a href="../assets/images/projects/wfg-aero-direction.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/wfg-aero-direction.webp"
+               alt="Chart of change in total downforce against aero balance for four setup changes from one baseline. Front wing moves balance forward and adds downforce; rear wing moves it rearward and adds downforce; raising the front ride height moves it rearward and loses downforce; raising the rear ride height moves it slightly forward and loses downforce."
+               width="1600" height="900" loading="lazy">
+        </a>
+        <figcaption>Which way each setup change moves the car, from one baseline (wings 0, ride heights 15/40). Mexico, about 200&nbsp;km/h.</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Change</th><th>Front load</th><th>Rear load</th><th>Aero balance</th><th>Drag (C<sub>D</sub>A)</th></tr></thead>
+          <tbody>
+            <tr><td>Front wing, +10 clicks</td><td>+242&nbsp;N</td><td>+11&nbsp;N</td><td>+1.5 points</td><td>+2.6%</td></tr>
+            <tr><td>Rear wing, +10 clicks</td><td>&minus;12&nbsp;N</td><td>+222&nbsp;N</td><td>&minus;1.0 points</td><td>+4.0%</td></tr>
+            <tr><td>Front ride height, +1&nbsp;mm</td><td>&minus;42&nbsp;N</td><td>&minus;14&nbsp;N</td><td>&minus;0.27 points</td><td>&minus;0.3%</td></tr>
+            <tr><td>Rear ride height, +1&nbsp;mm</td><td>+6&nbsp;N</td><td>&minus;13&nbsp;N</td><td>+0.12 points</td><td>+0.4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Ride heights are the measured (dynamic) values at speed. Raising one end of the car also moved the other, so I separated the two effects with a two-variable fit (R&sup2; above 0.99 for the loads and balance).</p>
+
+      <h3>Using it for setup direction</h3>
+      <p>To make the car rotate more in fast corners, the aero balance has to move forward. The map shows what each way of doing that costs:</p>
+      <ul class="detail-list">
+        <li><strong>More front wing</strong>: +0.15 points per click. It costs about half the drag per unit of downforce of the rear wing, so it is the efficient choice.</li>
+        <li><strong>Lower front ride height</strong>: +0.27 points and +57&nbsp;N of total downforce per mm, limited by how low the floor can run.</li>
+        <li><strong>Less rear wing</strong>: moves the balance forward but takes downforce off the rear, which costs traction.</li>
+        <li><strong>More rake</strong> (raising the rear): only +0.12 points per mm, while losing downforce and adding drag. In this game, rake is a poor balance tool.</li>
+      </ul>
+      <p>Aero load scales with speed squared, so at 100&nbsp;km/h it is a quarter of the 200&nbsp;km/h figure. In slow corners, rotation comes mainly from the mechanical setup instead.</p>
+
+      <h3>Checking the data</h3>
+      <figure class="figure">
+        <a href="../assets/images/projects/wfg-aero-repeat.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/wfg-aero-repeat.webp"
+               alt="Chart of aero balance against wing setting for front and rear wing sweeps at Mexico and a repeat at Bahrain. The Bahrain lines run parallel to the Mexico lines, about half a point lower."
+               width="1600" height="900" loading="lazy">
+        </a>
+        <figcaption>The wing sweeps repeated at Bahrain.</figcaption>
+      </figure>
+      <ul class="detail-list">
+        <li><strong>Repeatable</strong>: the balance shift per click matched Mexico within 3% (front wing 0.150 against 0.153 points per click; rear wing 0.104 against 0.102).</li>
+        <li><strong>Offset explained</strong>: Bahrain sits about 0.57 points rearward. The ride-height fit from Mexico predicts 0.55 points from Bahrain's different ride heights.</li>
+        <li><strong>Noise</strong>: Bahrain's straight made the load readings about ten times noisier, which is why Mexico is the reference track.</li>
+        <li><strong>Limits</strong>: air density is fixed at 1.293&nbsp;kg/m&sup3; because the game does not model it, and the drag figure depends on the mass and rolling resistance used. So C<sub>L</sub>A and C<sub>D</sub>A are for comparing settings, not real-world values. Aero balance and the load changes do not depend on those assumptions.</li>
+      </ul>
+    </section>
+
     <section class="detail-section">
       <h2>Example: rotation through corners</h2>
       <p>One example was a suspension setup change aimed at the car's rotation through corners. The change moved rotation in the right direction.</p>
@@ -75,11 +132,21 @@
     </section>
 
     <section class="detail-section">
-      <h2>Why there is no data on this page</h2>
-      <p>Team telemetry and setups are confidential, so this page describes the work rather than showing it. I am happy to talk through the method in an interview.</p>
+      <h2>From the team</h2>
+      <figure class="figure figure--narrow">
+        <img src="../assets/images/projects/wfg-team-shoutout.webp"
+             alt="Instagram comment from williamsf1teamgaming: And a big shoutout to @NaeemK_24 who was assisting the team with data remotely, overseas! Which just goes to show the extent of the work that goes on behind the scenes for our race team to achieve this success."
+             width="444" height="94" loading="lazy">
+        <figcaption>Williams F1 Team Gaming on Instagram, after an F1 Sim Racing event.</figcaption>
+      </figure>
     </section>
 
-    <p class="detail-tools"><strong>Tools:</strong> MoTeC, team telemetry tools, setup engineering</p>
+    <section class="detail-section">
+      <h2>About the data</h2>
+      <p>Race telemetry and team setups stay confidential. The aero map above comes from my own controlled test runs in F1&nbsp;25, not from race data.</p>
+    </section>
+
+    <p class="detail-tools"><strong>Tools:</strong> MoTeC, team telemetry tools, Excel, Python (matplotlib), setup engineering</p>
     <a class="back-link" href="../index.html#projects">&larr; All projects</a>
 
   </main>

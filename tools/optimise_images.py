@@ -20,7 +20,6 @@ RENAME = {
     "Tyre DWG GDP.png":      "gdp-tyre.webp",
     "FrontUprightDesign.png":           "fs-upright-cad.webp",
     "FrontUprightBrakingStress.png":    "fs-upright-stress.webp",
-    "MoTeC_Sebring_GTP.png":            "wfg-motec-sebring.webp",
     "WilliamsPitWallBootcamp2023.jpg":  "wfg-pitwall-bootcamp.webp",
 }
 
