@@ -228,6 +228,7 @@ a { color: inherit; }
 }
 .card-img--dil { object-position: 75% 50%; }               /* keep the wheel and HUD in frame */
 .card-img--drawing { object-fit: contain; padding: 8px; }  /* show the whole drawing, never crop it */
+.card-img--esports { object-position: 50% 30%; }            /* keep faces and the tyre in a square photo */
 .hero-subheading { color: var(--accent); font-weight: 600; margin: -16px 0 24px; }
 
 /* ===== 13. Card link ===== */
@@ -397,3 +398,22 @@ html { scroll-behavior: smooth; }
   }
   .nav-links.is-open a { display: block; padding: 12px 0; font-size: 1.05rem; }
 }
+
+/* ===== 22. About: outside the day job ===== */
+.about-lead { max-width: 720px; margin: 0 0 24px; }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+.photo-grid figure { margin: 0; }
+.photo-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.photo-grid figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }

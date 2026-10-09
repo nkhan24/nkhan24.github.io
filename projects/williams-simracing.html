@@ -42,7 +42,12 @@
     <p class="eyebrow">Motorsport · Atlassian Williams F1 Team Gaming · 2022–2026</p>
     <h1 class="detail-title">Sim-Racing Performance Engineering</h1>
     <p class="detail-lead">Volunteer performance engineer for the official Williams Racing esports team. I read telemetry and driver feedback, find where lap time is lost, and turn that into setup changes.</p>
-
+    <figure class="figure figure--narrow">
+      <img src="../assets/images/projects/wfg-esports-facility.webp"
+           alt="Naeem holding an F1 wet-weather tyre at the Williams Esports facility, with racing simulators behind"
+           width="919" height="919" loading="lazy">
+      <figcaption>At the Williams Esports facility with driver Alvaro Carreton.</figcaption>
+    </figure>
     <ol class="highlight-list detail-figures">
       <li><span class="hl-num">P4 ×2</span><span class="hl-text">Consecutive fourth-place finishes in the F1 Sim Racing Teams' Championship, against nine other teams</span></li>
       <li><span class="hl-num">20+</span><span class="hl-text">Circuits analysed for lap-time loss</span></li>
@@ -57,6 +62,12 @@
         <li><strong>Driver feedback</strong>: structured debriefs on balance, rotation, braking and traction, checked against what the data shows.</li>
         <li><strong>Setup changes</strong>: turning those findings into changes to the car, including spring and anti-roll-bar stiffness.</li>
       </ul>
+      <figure class="figure">
+        <img src="../assets/images/projects/wfg-sim-session.webp"
+             alt="Two drivers on Playseat simulator rigs at the Williams Esports facility, with a team member watching from the side"
+             width="1225" height="919" loading="lazy">
+        <figcaption>A practice session on the team's simulators.</figcaption>
+      </figure>     
     </section>
 
         <section class="detail-section">
@@ -114,6 +125,41 @@
         <li><strong>Noise</strong>: Bahrain's straight made the load readings about ten times noisier, which is why Mexico is the reference track.</li>
         <li><strong>Limits</strong>: air density is fixed at 1.293&nbsp;kg/m&sup3; because the game does not model it, and the drag figure depends on the mass and rolling resistance used. So C<sub>L</sub>A and C<sub>D</sub>A are for comparing settings, not real-world values. Aero balance and the load changes do not depend on those assumptions.</li>
       </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Example: race strategy and tyre wear</h2>
+      <p>For a season in a previous F1 game, I built a strategy sheet setting out each round's tyre plan: the compounds available, how much slower the medium and hard were than the soft, how many laps each compound lasts, the main and backup pit strategies with the tyre wear expected at each stop, fuel targets, and the time lost in the pit lane.</p>
+      <figure class="figure">
+        <a href="../assets/images/projects/wfg-strategy-tyres.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/wfg-strategy-tyres.webp"
+               alt="Table of tyre data for 12 rounds: compounds available, dry time difference of the medium and hard against the soft, and tyre lifespan in laps"
+               width="752" height="237" loading="lazy">
+        </a>
+        <figcaption>Tyre data by round: compounds, dry pace gap to the soft, and lifespan in laps. Click to open full size.</figcaption>
+      </figure>
+      <figure class="figure">
+        <a href="../assets/images/projects/wfg-strategy-pits.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/wfg-strategy-pits.webp"
+               alt="Table of pit strategies for 12 rounds: main and backup stint plans, estimated tyre wear at each stop, fuel target, fuel burn rate and pit loss"
+               width="988" height="237" loading="lazy">
+        </a>
+        <figcaption>Pit strategy by round: main and backup stint plans, estimated tyre wear at each stop, fuel targets and pit loss. Click to open full size.</figcaption>
+      <figure class="figure">
+        <a href="../assets/images/projects/wfg-pitwall-screens.webp" target="_blank" rel="noopener">
+          <img src="../assets/images/projects/wfg-pitwall-screens.webp"
+               alt="Pit-wall monitors during a race: track map with car positions, live timing, weather forecast, each car's tyre history, and a car status screen with tyre temperatures and damage"
+               width="1225" height="919" loading="lazy">
+        </a>
+        <figcaption>The pit wall during a test race at Lusail, Qatar, in preparation for an esports league race: track map, live timing, weather forecast, tyre history and car status. Click to open full size.</figcaption>
+      </figure>    
+      <figure class="figure figure--narrow">
+        <img src="../assets/images/projects/wfg-tyre-wear-brazil.webp"
+             alt="Map of Interlagos coloured by tyre wear: the straights are blue (low wear) and several corners are red (high wear)"
+             width="420" height="505" loading="lazy">
+        <figcaption>Tyre wear by track section at Interlagos, from a wear map I built: blue low, green medium, red high. Each percentage is the tyre wear in that section.</figcaption>
+      </figure>
+      <p>The wear map shows where the tyres are used up: 1% or less on the straights against 5–9% in the highest-wear corners. That shows the driver where tyre management pays off, and the setup engineer which corners to protect.</p>
     </section>
 
     <section class="detail-section">
