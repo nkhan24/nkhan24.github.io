@@ -411,9 +411,11 @@ html { scroll-behavior: smooth; }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
 .photo-grid figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+.about-group { margin-top: 32px; }
+.about-group h3 { font-size: 1.15rem; margin: 0 0 8px; }
