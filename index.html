@@ -281,6 +281,31 @@
       <h2 class="section-title">Outside the day job</h2>
 
       <div class="about-group">
+        <h3>Personal project: quadricycle vehicle model</h3>
+        <p class="about-lead">I am building a vehicle model of a two-seat quadricycle from first principles in Python, alongside a layout envelope in FreeCAD with the intention to make it into a driver-in-the-loop simulator for public roads that predict the ride, handling, powertrain, crash etc... of the vehicle. So far it covers coast-down, braking and acceleration. The first design question was brake balance.</p>
+        <p class="about-lead">Both axles reach their grip limit together when the front share of brake force equals the static front weight fraction plus the load transferred forward under braking:</p>
+        <p class="equation">&beta;<sub>ideal</sub> = W<sub>f</sub>/W + &mu;h/L</p>
+        <p class="about-lead">Here W<sub>f</sub>/W is the static front weight fraction, &mu; the tyre&ndash;road grip, h the centre-of-gravity height and L the wheelbase. The ideal split rises with grip, so a fixed split can only be ideal on one surface.</p>
+        <figure class="figure figure--chart">
+          <a href="assets/images/projects/quad-brake-split-adhesion.webp">
+            <img src="assets/images/projects/quad-brake-split-adhesion.webp"
+                 alt="Line chart of maximum deceleration in g against front brake-force share from 45 to 75 percent, for adhesion 0.2, 0.4 and 0.8. The peaks of 0.2, 0.4 and 0.8 g sit at about 55, 61 and 71 percent front"
+                 width="1600" height="1000" loading="lazy">
+          </a>
+          <figcaption>Maximum deceleration against front brake-force share on three surfaces. Each peak is the ideal split, and it moves forward as grip rises</figcaption>
+        </figure>
+        <p class="about-lead">Load moves it too. Each added load shifts the centre of gravity rearward and upward, so at &mu; = 0.4 the ideal front share falls from 60.6% unladen to 56.3% fully laden. With a fixed 65% front split, the front axle reaches its limit first in every case. Usable grip falls from 92% to 83%, and the stop from 90 km/h grows from 87 m to 96 m, against 80 m with ideal balance.</p>
+        <figure class="figure figure--chart">
+          <a href="assets/images/projects/quad-brake-split-loading.webp">
+            <img src="assets/images/projects/quad-brake-split-loading.webp"
+                 alt="Line chart of maximum deceleration against front brake-force share at adhesion 0.4 for unladen, driver only, two occupants and fully laden cases. Each peaks at 0.4 g, and the peak moves from about 61 to 56 percent front as load increases"
+                 width="1600" height="1000" loading="lazy">
+          </a>
+          <figcaption>The same model at &mu; = 0.4 for four load cases, from 450 kg unladen to 650 kg fully laden</figcaption>
+        </figure>
+      </div>
+
+      <div class="about-group">
         <h3>Motorsport, sim racing and industry events</h3>
         <p class="about-lead">Motorsport is the main thing I do away from work: racing karts, driving simulators, getting close to the cars at race weekends, and seeing engineering up close at industry events such as Life at Tesla.</p>
         <div class="photo-grid">

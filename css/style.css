@@ -263,6 +263,7 @@ a { color: inherit; }
 .figure img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line); }
 .figure figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
 .figure--narrow { max-width: 420px; }   /* portrait photos would be too tall at full width */
+.figure--chart { max-width: 820px; }    /* keeps chart text readable; matches project-page width */
 
 /* Equation and research question */
 .equation {

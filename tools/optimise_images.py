@@ -21,6 +21,8 @@ RENAME = {
     "FrontUprightDesign.png":           "fs-upright-cad.webp",
     "FrontUprightBrakingStress.png":    "fs-upright-stress.webp",
     "WilliamsPitWallBootcamp2023.jpg":  "wfg-pitwall-bootcamp.webp",
+    "brake_split_adhesion.png":         "quad-brake-split-adhesion.webp",
+    "brake_split_loading.png":          "quad-brake-split-loading.webp",    
 }
 
 src, out = Path(sys.argv[1]), Path(sys.argv[2])
