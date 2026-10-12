@@ -419,3 +419,18 @@ html { scroll-behavior: smooth; }
 .photo-grid figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
 .about-group { margin-top: 32px; }
 .about-group h3 { font-size: 1.15rem; margin: 0 0 8px; }
+
+/* ===== 23. Hero photo ===== */
+.hero-photo {
+  display: block;
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  margin-bottom: 24px;
+}
+@media (min-width: 900px) {
+  .hero-photo { float: right; width: 240px; height: 240px; margin: 0 0 24px 48px; }
+}
+.hero-facts { clear: both; }
