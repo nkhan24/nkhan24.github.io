@@ -427,7 +427,7 @@ html { scroll-behavior: smooth; }
   height: 144px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--line);
+  border: 6px solid teal;
   margin-bottom: 24px;
 }
 @media (min-width: 900px) {
