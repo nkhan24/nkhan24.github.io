@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Wishbone Re-analysis | Naeem Khan</title>
+  <meta name="description" content="Personal project: rebuilding a double wishbone suspension arm study in FreeCAD, PrePoMax and CalculiX to re-check topology optimisation, statics and fatigue.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Double Wishbone Re-analysis | Naeem Khan">
+  <meta property="og:description" content="Personal project: rebuilding a double wishbone suspension arm study in FreeCAD, PrePoMax and CalculiX to re-check topology optimisation, statics and fatigue.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/wishbone-reanalysis.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/wishbone-beso-rings.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">Personal project · Liverpool · November 2026 &ndash; present</p>
+    <h1 class="detail-title">Double Wishbone Re-analysis</h1>
+    <p class="detail-lead">Re-checking my own Cranfield suspension arm study in open-source tools, because I don't trust its fatigue result.</p>
+    <figure class="figure figure--narrow">
+      <a href="../assets/images/projects/wishbone-beso-rings.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/wishbone-beso-rings.webp"
+             alt="Topology optimisation result for the upper and lower suspension arms in CalculiX: thin blue load paths inside a translucent grey design-space block, with solid rings kept at the mounting bores"
+             width="672" height="946" loading="lazy">
+      </a>
+      <figcaption>BESO result with two load cases, solid rings at the bores and a 2&nbsp;mm knuckle limit. Blue is the material kept; grey is the original design space. This is raw optimiser output, not yet a part that could be made</figcaption>
+    </figure>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">122,809</span><span class="hl-text">Quadratic tetrahedral elements in the PrePoMax mesh of both arms</span></li>
+      <li><span class="hl-num">0.1%</span><span class="hl-text">Difference between my rebuilt baseline mass and the Cranfield model (6.888 against 6.887&nbsp;kg)</span></li>
+      <li><span class="hl-num">2&nbsp;mm</span><span class="hl-text">Knuckle displacement limit, the same target as the original study</span></li>
+      <li><span class="hl-num">4</span><span class="hl-text">Load cases in the latest run: &plusmn;1&nbsp;g longitudinal, &plusmn;1&nbsp;g lateral and 3&nbsp;g vertical</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>Why I am doing this</h2>
+      <p>My <a href="vehicle-structures.html">Cranfield wishbone study</a> passed its fatigue target, but the loads came from a smooth drive cycle, so I don't trust the result. I am rebuilding the study in free, open-source tools to test the topology optimisation again and re-check the statics and fatigue behind it.</p>
+    </section>
+    <section class="detail-section">
+      <h2>What I have done so far</h2>
+      <ul class="detail-list">
+        <li><strong>Geometry and mesh</strong>: rebuilt both arms in FreeCAD and meshed them in PrePoMax: 122,809 quadratic tetrahedral elements and 235,470 nodes, with aluminium at E&nbsp;=&nbsp;70&nbsp;GPa and &nu;&nbsp;=&nbsp;0.33. The baseline mass matched the Cranfield model within 0.1%.</li>
+        <li><strong>Learning the method first</strong>: ran the BESO (bi-directional evolutionary structural optimisation) scripts with the CalculiX solver on a single small steel tab before touching the arms, to see how the optimiser behaves and when it stops.</li>
+        <li><strong>Protected rings</strong>: kept 8&nbsp;mm solid rings at the seven bores.</li>
+        <li><strong>Stiffness constraint</strong>: added the 2&nbsp;mm knuckle displacement limit from the original study. When a step breaks the limit, the optimiser adds material back.</li>
+        <li><strong>More load cases</strong>: moved from two load cases to four (&plusmn;1&nbsp;g longitudinal, &plusmn;1&nbsp;g lateral and 3&nbsp;g vertical at the knuckle), matching the hand-calculated cases from the original study.</li>
+        <li><strong>Solver failure</strong>: one long run stopped at iteration 63 when CalculiX could not open its input file. I re-ran that step and restarted from the state saved at iteration 60, rather than starting again.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>Next steps</h2>
+      <ul class="detail-list">
+        <li>Finish the four-load-case run and check it has converged.</li>
+        <li>Model the optimised arm as real geometry and put it back into the suspension model in place of the original.</li>
+        <li>Re-check the statics and fatigue against the original targets, and challenge the result rather than accept it.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>About the numbers on this page</h2>
+      <p>The optimisation is still running, so this page shows the method and the checks, not a final mass. A raw topology result is not a manufacturable arm, so I won't compare its mass with the 34% from the original study until the rebuilt arm has been re-checked.</p>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> FreeCAD, PrePoMax, CalculiX, BESO (Python)</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

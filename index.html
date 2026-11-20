@@ -53,7 +53,7 @@
         I build vehicle models and integrate them into driver-in-the-loop simulators
         to analyse how a vehicle behaves at its limits and how the driver responds.
         This builds on three years in wheel design and release at Ford Motor Company
-        (via Caresoft Global) and approximately five years as a volunteer sim-racing engineer with
+        (via Caresoft Global) and over four years as a volunteer sim-racing engineer with
         Williams F1 Team Gaming.
       </p>
 
@@ -73,6 +73,7 @@
       <div class="hero-actions">
         <a class="btn btn-primary" href="assets/pdf/Naeem_Khan_CV.pdf" download>Download CV</a>
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/naeem-khan-971565172/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/nkhan24" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <dl class="hero-facts">
@@ -83,11 +84,11 @@
         <div>
           <dt>Experience/Volunteering</dt>
           <dd>~3 years, Ford Motor Company</dd>
-          <dd>~5 years, Williams F1 Team Gaming</dd>
+          <dd>4+ years, Williams F1 Team Gaming</dd>
         </div>
         <div>
           <dt>Availability</dt>
-          <dd>Available now · UK, willing to relocate</dd>
+          <dd>Available now · Liverpool, UK, willing to relocate</dd>
         </div>
       </dl>
     </section>
@@ -95,8 +96,8 @@
     <section class="highlights" aria-label="Key highlights">
       <ol class="highlight-list">
         <li>
-          <span class="hl-num">10 + 1</span>
-          <span class="hl-text">Wheel and jack designs taken through design-verification sign-off, Ford Transit V710 programme</span>
+          <span class="hl-num">19</span>
+          <span class="hl-text">Wheel and jack parts released across two Ford Transit programmes</span>
         </li>
         <li>
           <span class="hl-num">P4 ×2</span>
@@ -164,12 +165,12 @@
           <p class="card-meta">Ford Motor Company (via Caresoft Global) · 2022–2025 · Design &amp; Release Engineer</p>
           <p class="card-summary">Production design release of wheels and jacks for Ford's global Transit programmes.</p>
           <ul class="card-points">
-            <li>Reviewed supplier CAD models and drawings in CATIA V5 against fit, interface, manufacturing and GD&amp;T requirements</li>
-            <li>Defined DVP&amp;R test requirements and acceptance criteria, and reviewed test evidence</li>
-            <li>Resolved component issues across design, test and supplier teams</li>
+            <li>Took 10 wheel designs and one jack design from concept to design-verification sign-off in parallel, planning analysis, prototype and test timing with suppliers</li>
+            <li>Checked 30+ supplier models and drawings in CATIA V5; raised unmet requirements as digital pre-assembly issues, all resolved before tooling</li>
+            <li>Defined DVP&amp;R tests from the DFMEA, including wheel impact, biaxial, weathering and wrench effort</li>
           </ul>
-          <p class="card-result"><strong>Result:</strong> Design-verification sign-off for 10 wheel designs and one jack design on the Transit V710 programme, within programme timing.</p>
-          <ul class="card-tools"><li>CATIA V5</li><li>Teamcenter</li><li>DVP&amp;R</li><li>DFMEA</li><li>GD&amp;T</li></ul>
+          <p class="card-result"><strong>Result:</strong> 19 wheel and jack parts released across two Transit programmes. All 11 parallel designs were approved on first submission, on schedule.</p>
+          <ul class="card-tools"><li>CATIA V5</li><li>Teamcenter</li><li>WERS</li><li>DVP&amp;R</li><li>DFMEA</li><li>GD&amp;T</li></ul>
           <a class="card-link" href="projects/ford-wheels.html">View project &rarr;</a>        
         </article>
 
@@ -182,8 +183,9 @@
           <p class="card-meta">Cranfield University · 2026 · Deputy Engineer, Vehicle Dynamics (wheels &amp; tyres)</p>
           <p class="card-summary">Conceptual design of a quadricycle and the mobility service built around it.</p>
           <ul class="card-points">
+            <li>Deputy engineer of the six-person vehicle dynamics department in a team of 19; led failure mode avoidance and chaired team meetings</li>
             <li>Derived the per-wheel design load from laden mass, worst-case weight distribution and a 1.5 load factor, then selected tyre and wheel against ETRTO and UNECE requirements</li>
-            <li>Modelled cornering stiffness with an explicit ±27% uncertainty band, in the absence of tyre test data</li>
+            <li>Gave the ride engineer's handling model a cornering-stiffness range from two literature methods, up to ±30%, as there was no tyre test data</li>
           </ul>
           <p class="card-result"><strong>Result:</strong> Selected a 155/65&nbsp;R13&nbsp;73T tyre (365&nbsp;kg capacity, 10.6% above the 330&nbsp;kg design load) on an off-the-shelf 13&nbsp;×&nbsp;4.5 steel wheel.</p>
           <ul class="card-tools"><li>MATLAB/Simulink</li><li>IPG CarMaker</li><li>CATIA V5</li></ul>
@@ -191,21 +193,128 @@
         </article>
 
         <article class="card">
+            <img class="card-img" src="assets/images/projects/vs-topology-density.webp"
+               alt="OptiStruct topology result for double wishbone suspension arms, with retained load paths in red"
+               width="1600" height="1074" loading="lazy">
+          <p class="card-tag">MSc Module</p>
+          <h3 class="card-title">Double Wishbone Arm Optimisation</h3>
+          <p class="card-meta">Cranfield University · 2025 · Individual assignment</p>
+          <p class="card-summary">Material selection, topology optimisation and a fatigue check for the upper and lower arms of a double wishbone suspension.</p>
+          <ul class="card-points">
+            <li>Chose 6061-T6 aluminium from Ashby charts in Granta, then ranked the shortlist with SAW and TOPSIS</li>
+            <li>Calculated corner loads by hand (3&nbsp;g vertical, 1&nbsp;g longitudinal and lateral) and optimised both arms in OptiStruct against a 2&nbsp;mm displacement limit</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Arms about 34% lighter (6.887 to 4.556&nbsp;kg), with 1.95&nbsp;mm peak displacement inside the 2&nbsp;mm limit.</p>
+          <ul class="card-tools"><li>Granta</li><li>HyperMesh</li><li>OptiStruct</li><li>HyperLife</li><li>CATIA V5</li></ul>
+          <a class="card-link" href="projects/vehicle-structures.html">View project &rarr;</a>
+        </article>
+
+        <article class="card">
+            <img class="card-img" src="assets/images/projects/about-wind-tunnel.webp" style="object-position: 50% 40%;"
+               alt="MSc students inside Cranfield's wind tunnel behind a scale car model on the rolling road"
+               width="1200" height="1600" loading="lazy">
+          <p class="card-tag">MSc Module</p>
+          <h3 class="card-title">Wind Tunnel Testing</h3>
+          <p class="card-meta">Cranfield University · 2026 · Group of five</p>
+          <p class="card-summary">Base-pressure measurements on a reference car model, and a ride-height sweep of a 35% DrivAer model on a moving ground.</p>
+          <ul class="card-points">
+            <li>Corrected all 25 pressure-tap channels after the reference-pressure correction went into LabVIEW with the wrong sign</li>
+            <li>Confirmed the axial load coefficient with two integration methods, within 2.3%</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Downforce rose as the DrivAer model was lowered, then levelled off at about 40&ndash;45&nbsp;mm ride height in every set-up tested.</p>
+          <ul class="card-tools"><li>MATLAB</li><li>Excel</li></ul>
+          <a class="card-link" href="projects/wind-tunnel.html">View project &rarr;</a>
+        </article>
+
+        <article class="card">
             <img class="card-img" src="assets/images/projects/fs-car-ler.webp"
                alt="Lancaster e-Racing Formula Student car, number 56, parked outside a university building"
                width="1232" height="919" loading="lazy">
           <p class="card-tag">Formula Student</p>
-          <h3 class="card-title">Wheel Assemblies &amp; Uprights</h3>
-          <p class="card-meta">Lancaster University · 2021 · Wheel Assemblies and Structures Engineer</p>
-          <p class="card-summary">Uprights and suspension-interface components for the university Formula Student car.</p>
+          <h3 class="card-title">Front Upright &amp; Brackets</h3>
+          <p class="card-meta">Lancaster University · 2021 · Wheel Assemblies and Structures Engineer · Completed during COVID-19 restrictions</p>
+          <p class="card-summary">The front upright and its wishbone and steering brackets for Lancaster's 2021 electric Formula Student car.</p>
           <ul class="card-points">
-            <li>Designed uprights and mounting brackets in SolidWorks from first-principles load calculations</li>
-            <li>Verified structural performance in ANSYS</li>
+            <li>Designed the front upright and its three mounting brackets in SolidWorks from first-principles load calculations</li>
+            <li>Verified them in ANSYS under braking, cornering and 3&nbsp;g bump load cases, with mesh convergence within 0.3%</li>
             <li>Delivered manufacture-ready drawings with tolerances and design-for-manufacture considerations</li>
           </ul>
-          <p class="card-result"><strong>Result:</strong> Front upright CNC-machined in-house from 6061 aluminium; main body within the 1.5 safety-factor target, with 0.53&nbsp;mm peak deflection under maximum braking (1&nbsp;mm limit).</p>
+          <p class="card-result"><strong>Result:</strong> Front upright CNC-machined in-house from 6061 aluminium and fitted to the car; main body within the 1.5 safety-factor target, with 0.53&nbsp;mm peak deflection under maximum braking (1&nbsp;mm limit).</p>
           <ul class="card-tools"><li>SolidWorks</li><li>ANSYS</li></ul>
           <a class="card-link" href="projects/fs-upright.html">View project &rarr;</a>
+        </article>
+
+        <article class="card">
+            <img class="card-img card-img--drawing" src="assets/images/projects/ev-simulink-vehicle.webp"
+               alt="Simulink model joining the EMRAX 208 motor drive to a vehicle body block"
+               width="1236" height="487" loading="lazy">
+          <p class="card-tag">MEng Project</p>
+          <h3 class="card-title">Formula Student EV Powertrain Model</h3>
+          <p class="card-meta">Lancaster University · 2019&ndash;20 · Individual project</p>
+          <p class="card-summary">A MATLAB and Simulink model of Lancaster e-Racing's electric powertrain, built to check the hardware was safe before the car was tested.</p>
+          <ul class="card-points">
+            <li>Modelled the EMRAX 208 motor with a PI current controller to match the real motor controller, and filtered current noise with a 550&nbsp;Hz low-pass filter</li>
+            <li>Modelled the 378&nbsp;V, 90-cell battery and the car's longitudinal dynamics for the 75&nbsp;m acceleration event</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Motor current stayed under the controller's 200&nbsp;A rating, and the car covered just over 80&nbsp;m in 5&nbsp;s, beating the 75&nbsp;m target.</p>
+          <ul class="card-tools"><li>MATLAB</li><li>Simulink</li><li>SimPowerSystems</li></ul>
+          <a class="card-link" href="projects/ev-powertrain.html">View project &rarr;</a>
+        </article>
+
+      </div>
+
+      <h3 class="subsection-title">Personal projects</h3>
+      <div class="card-grid">
+
+        <article class="card">
+            <img class="card-img card-img--drawing card-img--dark" src="assets/images/projects/aeromap-cv-error.webp"
+               alt="Bar chart comparing training and unseen-point errors for linear and quadratic aero map models"
+               width="1600" height="900" loading="lazy">
+          <p class="card-tag">Personal Project</p>
+          <h3 class="card-title">F1&nbsp;25 Aero Map Regression</h3>
+          <p class="card-meta">Python · October 2026 · Code public on GitHub</p>
+          <p class="card-summary">Separating front and rear ride-height effects on axle downforce, from my own controlled test runs in F1&nbsp;25.</p>
+          <ul class="card-points">
+            <li>Fitted a two-variable model in SciPy that matched Excel's LINEST exactly</li>
+            <li>Tested it against a quadratic model with leave-one-out cross-validation, with pytest checks on the code</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Linear model kept: R&sup2; 0.9998 front and 0.997 rear, with 4.6&nbsp;N front error on unseen points against 6.2&nbsp;N for the overfitting quadratic.</p>
+          <ul class="card-tools"><li>Python</li><li>SciPy</li><li>scikit-learn</li><li>pytest</li><li>Git</li></ul>
+          <a class="card-link" href="projects/aeromap-regression.html">View project &rarr;</a>
+        </article>
+
+        <article class="card">
+            <img class="card-img card-img--drawing" src="assets/images/projects/quad-brake-split-adhesion.webp"
+               alt="Chart of maximum deceleration against front brake-force share on three road surfaces"
+               width="1600" height="1000" loading="lazy">
+          <p class="card-tag">Personal Project</p>
+          <h3 class="card-title">Quadricycle Brake Balance Model</h3>
+          <p class="card-meta">Python and FreeCAD · September 2026 &ndash; present</p>
+          <p class="card-summary">The first design question in my own two-seat quadricycle vehicle model: where should the brake balance sit?</p>
+          <ul class="card-points">
+            <li>Built a Python braking model with load transfer and brake balance; a brake-split sweep agreed with theory within 0.02 percentage points</li>
+            <li>Tested the effect of payload with the split fixed at 65% front</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> Ideal front share of 55&ndash;71% across 0.2&ndash;0.8 grip. With a fixed split, two occupants and luggage cut usable grip from 92% to 83% and lengthened the stop from 90&nbsp;km/h from 86.7&nbsp;m to 96.0&nbsp;m.</p>
+          <ul class="card-tools"><li>Python</li><li>FreeCAD</li></ul>
+          <a class="card-link" href="projects/quadricycle-braking.html">View project &rarr;</a>
+        </article>
+
+        <article class="card">
+            <img class="card-img card-img--dark" src="assets/images/projects/wishbone-beso-rings.webp" style="object-position: 50% 80%;"
+               alt="Topology optimisation result for two suspension arms in CalculiX, blue load paths inside a grey design space"
+               width="672" height="946" loading="lazy">
+          <p class="card-tag">Personal Project</p>
+          <h3 class="card-title">Double Wishbone Re-analysis</h3>
+          <p class="card-meta">FreeCAD, PrePoMax and CalculiX · November 2026 &ndash; present</p>
+          <p class="card-summary">Re-checking my Cranfield suspension arm study in open-source tools, because I don't trust its fatigue result.</p>
+          <ul class="card-points">
+            <li>Rebuilt and meshed both arms with 122,809 quadratic tetrahedral elements; the baseline mass matched the Cranfield model within 0.1%</li>
+            <li>Running BESO topology optimisation with protected rings at the bores, a 2&nbsp;mm knuckle limit and four load cases</li>
+          </ul>
+          <p class="card-result"><strong>Result:</strong> In progress. Next: model the optimised arm as real geometry and re-check statics and fatigue against the original targets.</p>
+          <ul class="card-tools"><li>FreeCAD</li><li>PrePoMax</li><li>CalculiX</li><li>Python</li></ul>
+          <a class="card-link" href="projects/wishbone-reanalysis.html">View project &rarr;</a>
         </article>
 
       </div>
@@ -221,7 +330,7 @@
           <div>
             <h3 class="timeline-role">MSc Automotive Engineering</h3>
             <p class="timeline-org">Cranfield University · Cranfield, UK</p>
-            <p>Vehicle dynamics, automotive control and simulation, powertrain performance, aerodynamics and electrification. Thesis: real-time HGV driver-in-the-loop simulator for roll stability.</p>
+            <p>73.1% overall. Vehicle dynamics, automotive control and simulation, vehicle structures, powertrain performance, aerodynamics and electrification. Thesis: real-time HGV driver-in-the-loop simulator for roll stability.</p>
           </div>
         </li>
         <li class="timeline-item">
@@ -245,7 +354,7 @@
           <div>
             <h3 class="timeline-role">MEng Mechanical Engineering, First-class Honours</h3>
             <p class="timeline-org">Lancaster University · Lancaster, UK</p>
-            <p>Control, vibration analysis, system modelling, fluid dynamics and composites. Formula Student wheel assemblies and structures engineer.</p>
+            <p>Control, vibration analysis, system modelling, fluid dynamics and composites. Formula Student wheel assemblies and structures engineer. Individual project: electric powertrain model for the Formula Student car.</p>
           </div>
         </li>
       </ol>
@@ -258,19 +367,19 @@
       <div class="skill-grid">
         <div class="skill-group">
           <h3>Simulation &amp; analysis</h3>
-          <ul class="skill-list"><li>MATLAB / Simulink</li><li>IPG CarMaker</li><li>Unreal Engine</li><li>MoTeC</li><li>Python</li></ul>
+          <ul class="skill-list"><li>MATLAB / Simulink</li><li>IPG CarMaker</li><li>Unreal Engine</li><li>MoTeC</li><li>Python (NumPy, pandas, SciPy, scikit-learn)</li></ul>
         </div>
         <div class="skill-group">
           <h3>CAD &amp; structures</h3>
-          <ul class="skill-list"><li>CATIA V5</li><li>SolidWorks</li><li>FreeCAD</li><li>ANSYS Structural</li><li>OptiStruct</li><li>Blender</li></ul>
+          <ul class="skill-list"><li>CATIA V5</li><li>SolidWorks</li><li>FreeCAD</li><li>ANSYS Structural</li><li>HyperMesh</li><li>OptiStruct</li><li>HyperLife</li><li>PrePoMax / CalculiX</li><li>Granta</li><li>Blender</li></ul>
         </div>
         <div class="skill-group">
           <h3>Engineering processes</h3>
-          <ul class="skill-list"><li>DVP&amp;R</li><li>DFMEA</li><li>GD&amp;T</li><li>Test planning</li><li>Design verification</li><li>Supplier coordination</li></ul>
+          <ul class="skill-list"><li>DVP&amp;R</li><li>DFMEA</li><li>8D problem solving</li><li>GD&amp;T</li><li>Test planning</li><li>Design verification</li><li>Supplier coordination</li></ul>
         </div>
         <div class="skill-group">
           <h3>Tools &amp; membership</h3>
-          <ul class="skill-list"><li>Teamcenter</li><li>Microsoft Project</li><li>Microsoft Office</li><li>IMechE Associate Member</li></ul>
+          <ul class="skill-list"><li>Teamcenter</li><li>WERS</li><li>FEDEBoM</li><li>Git</li><li>Microsoft Project</li><li>Microsoft Office</li><li>IMechE Associate Member</li></ul>
         </div>
       </div>
     </section>
@@ -282,27 +391,7 @@
 
       <div class="about-group">
         <h3>Personal project: quadricycle vehicle model</h3>
-        <p class="about-lead">I am building a vehicle model of a two-seat quadricycle from first principles in Python, with a layout envelope in FreeCAD. The aim is a driver-in-the-loop simulator on real public roads that predicts the vehicle's ride, handling and powertrain behaviour. So far the model covers coast-down, braking and acceleration. The first design question was brake balance.</p>
-        <p class="about-lead">Both axles reach their grip limit together when the front share of brake force equals the static front weight fraction plus the load transferred forward under braking:</p>
-        <p class="equation">&beta;<sub>ideal</sub> = W<sub>f</sub>/W + &mu;h/L</p>
-        <p class="about-lead">Here W<sub>f</sub>/W is the static front weight fraction, &mu; the tyre&ndash;road grip, h the centre-of-gravity height and L the wheelbase. The ideal split rises with grip, so a fixed split can only be ideal on one surface.</p>
-        <figure class="figure figure--chart">
-          <a href="assets/images/projects/quad-brake-split-adhesion.webp">
-            <img src="assets/images/projects/quad-brake-split-adhesion.webp"
-                 alt="Line chart of maximum deceleration in g against front brake-force share from 45 to 75 percent, for adhesion 0.2, 0.4 and 0.8. The peaks of 0.2, 0.4 and 0.8 g sit at about 55, 61 and 71 percent front"
-                 width="1600" height="1000" loading="lazy">
-          </a>
-          <figcaption>Maximum deceleration against front brake-force share on three surfaces. Each peak is the ideal split, and it moves forward as grip rises</figcaption>
-        </figure>
-        <p class="about-lead">Load moves it too. Each added load shifts the centre of gravity rearward and upward, so at &mu;&nbsp;=&nbsp;0.4 the ideal front share falls from 60.6% unladen to 56.3% fully laden. With a fixed 65% front split, the front axle reaches its limit first in every case. Usable grip falls from 92% to 83%, and the stop from 90 km/h grows from 87 m to 96 m, against 80 m with ideal balance.</p>
-        <figure class="figure figure--chart">
-          <a href="assets/images/projects/quad-brake-split-loading.webp">
-            <img src="assets/images/projects/quad-brake-split-loading.webp"
-                 alt="Line chart of maximum deceleration against front brake-force share at adhesion 0.4 for unladen, driver only, two occupants and fully laden cases. Each peaks at 0.4 g, and the peak moves from about 61 to 56 percent front as load increases"
-                 width="1600" height="1000" loading="lazy">
-          </a>
-          <figcaption>The same model at &mu; = 0.4 for four load cases, from 450 kg unladen to 650 kg fully laden</figcaption>
-        </figure>
+        <p class="about-lead">I am building a vehicle model of a two-seat quadricycle from first principles in Python, with a layout envelope in FreeCAD. The aim is a driver-in-the-loop simulator on real public roads that predicts the vehicle's ride, handling and powertrain behaviour. So far the model covers coast-down, braking and acceleration. The first design question was brake balance: <a href="projects/quadricycle-braking.html">see the brake balance model</a>.</p>
       </div>
 
       <div class="about-group">
@@ -401,11 +490,12 @@
     <section id="contact" class="section">
       <p class="eyebrow">Contact</p>
       <h2 class="section-title">Get in touch</h2>
-      <p class="contact-lead">Looking for graduate and junior roles in vehicle dynamics, simulation and motorsport engineering. Available now, UK-based and willing to relocate.</p>
+      <p class="contact-lead">Looking for graduate and junior roles in vehicle dynamics, simulation and motorsport engineering. Available now, based in Liverpool, UK, and willing to relocate.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:naeem.m.khan18@gmail.com">Email me</a>
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/naeem-khan-971565172/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-secondary" href="assets/pdf/Naeem_Khan_CV.pdf" download>Download CV</a>
+        <a class="btn btn-secondary" href="https://github.com/nkhan24" target="_blank" rel="noopener">GitHub</a>
       </div>
       <p class="contact-email">
         <span>naeem.m.khan18@gmail.com</span>

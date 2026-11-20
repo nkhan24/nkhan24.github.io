@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 25 Aero Map Regression | Naeem Khan</title>
+  <meta name="description" content="Personal Python project: separating front and rear ride-height effects on axle downforce in F1 25 with regression and leave-one-out cross-validation.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="F1 25 Aero Map Regression | Naeem Khan">
+  <meta property="og:description" content="Personal Python project: separating front and rear ride-height effects on axle downforce in F1 25 with regression and leave-one-out cross-validation.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/aeromap-regression.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/aeromap-cv-error.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">Personal project · Python · October 2026</p>
+    <h1 class="detail-title">F1&nbsp;25 Aero Map Regression</h1>
+    <p class="detail-lead">Separating the effects of front and rear ride height on axle downforce, and testing whether the model predicts or just fits.</p>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">0.9998</span><span class="hl-text">R&sup2; of the front-axle model (rear axle 0.997)</span></li>
+      <li><span class="hl-num">4.6&nbsp;N</span><span class="hl-text">Front-axle error on points the model never saw, against 6.2&nbsp;N for a curved model</span></li>
+      <li><span class="hl-num">15</span><span class="hl-text">Controlled test points from coast-down runs at Mexico City in F1&nbsp;25</span></li>
+      <li><span class="hl-num">Public</span><span class="hl-text">Code, data, tests and results on GitHub</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>The problem</h2>
+      <p>My <a href="williams-simracing.html">F1&nbsp;25 aero map</a> showed that changing the static ride height at one end of the car also moved the dynamic ride height at the other end. So a simple one-variable sweep mixes two effects. I used a two-variable regression to separate how much downforce each axle gains or loses per millimetre of front and of rear ride height.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Results</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Axle</th><th>Per mm front ride height</th><th>Per mm rear ride height</th><th>R&sup2;</th></tr></thead>
+          <tbody>
+            <tr><td>Front</td><td>&minus;42.46&nbsp;N</td><td>+6.05&nbsp;N</td><td>0.9998</td></tr>
+            <tr><td>Rear</td><td>&minus;14.15&nbsp;N</td><td>&minus;13.40&nbsp;N</td><td>0.997</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Raising the front by 1&nbsp;mm costs about 42&nbsp;N of front downforce, while raising the rear by 1&nbsp;mm adds about 6&nbsp;N at the front. The rear axle loses about 14&nbsp;N per mm of ride height at either end.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Testing the model, not just fitting it</h2>
+      <p>A curved (quadratic) model fitted the training data better, so I checked whether it actually predicts better. With leave-one-out cross-validation, each point is predicted by a model that never saw it.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/aeromap-cv-error.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/aeromap-cv-error.webp"
+             alt="Bar chart of RMS error in axle downforce. Front axle: linear 2.9 newtons training and 4.6 unseen; quadratic 2.0 training and 6.2 unseen. Rear axle: linear 5.2 training and 6.6 unseen; quadratic 3.1 training and 8.0 unseen"
+             width="1600" height="900" loading="lazy">
+      </a>
+      <figcaption>Training error against unseen-point error. The quadratic model fits better but predicts worse, so it is overfitting. Click to open full size</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li><strong>The quadratic overfits.</strong> It does better mid-range but fails at the ends of the test range, so I kept the linear model.</li>
+        <li><strong>The rear residuals arch</strong> against rear ride height, so the real relationship curves slightly. Fifteen points are not enough to model that curve reliably.</li>
+        <li><strong>Cross-checks</strong>: the SciPy fit matched Excel's LINEST exactly, and pytest tests check the fitting function recovers known slopes from made-up data.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>Next steps</h2>
+      <p>More test points, especially at the ends of the range, laid out as a grid of front and rear ride heights, with repeat runs to measure the noise.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Code</h2>
+      <p>The code, data, tests and results are public: <a href="https://github.com/nkhan24/f1-aeromap-regression" target="_blank" rel="noopener">github.com/nkhan24/f1-aeromap-regression</a>.</p>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> Python (NumPy, pandas, SciPy, scikit-learn, Matplotlib, pytest), Git, Excel</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

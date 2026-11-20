@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula Student EV Powertrain Model | Naeem Khan</title>
+  <meta name="description" content="MEng individual project: a MATLAB/Simulink model of Lancaster e-Racing's electric powertrain, motor, PI current control, battery and the 75 m acceleration event.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Formula Student EV Powertrain Model | Naeem Khan">
+  <meta property="og:description" content="MEng individual project: a MATLAB/Simulink model of Lancaster e-Racing's electric powertrain, motor, PI current control, battery and the 75 m acceleration event.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/ev-powertrain.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/ev-simulink-vehicle.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">MEng Individual Project · Lancaster University · 2019&ndash;20</p>
+    <h1 class="detail-title">Formula Student EV Powertrain Model</h1>
+    <p class="detail-lead">A MATLAB and Simulink model of Lancaster e-Racing's electric powertrain, built to check the motor, controller and battery were safe and to predict the acceleration run before the car was tested.</p>
+    <figure class="figure">
+      <a href="../assets/images/projects/ev-simulink-vehicle.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/ev-simulink-vehicle.webp"
+             alt="Simulink model joining the EMRAX 208 motor drive to a three-degree-of-freedom vehicle body block, with air resistance and friction feeding back to the motor"
+             width="1236" height="487" loading="lazy">
+      </a>
+      <figcaption>The full model: the EMRAX 208 motor drive connected through the gear ratio to the vehicle body, with air resistance and friction. Click to open full size</figcaption>
+    </figure>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">80&nbsp;m+</span><span class="hl-text">Distance covered in 5&nbsp;s in the simulated acceleration event, against a target of 75&nbsp;m in under 5&nbsp;s</span></li>
+      <li><span class="hl-num">&lt;200&nbsp;A</span><span class="hl-text">Motor current at maximum power, inside the motor controller's rating</span></li>
+      <li><span class="hl-num">378&nbsp;V</span><span class="hl-text">Accumulator: 90 lithium-ion cells in series</span></li>
+      <li><span class="hl-num">~26&nbsp;min</span><span class="hl-text">Battery life at a constant 55&nbsp;A load, enough for every acceleration run without recharging</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>Why the team needed it</h2>
+      <p>Lancaster e-Racing builds an electric Formula Student car, but no one had modelled its powertrain since 2017, and the team had run into electrical problems. I set out to model the motor, controller and battery from the datasheets and the team's 2019 report, check every component stayed inside its rating, and predict the 75&nbsp;m acceleration event before the car was tested. Individual third-year project, MEng Mechanical Engineering, 2019&ndash;20.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Motor and controller</h2>
+      <p>The car uses an EMRAX 208 brushless DC motor with a BAMOCAR D3 motor controller. The controller runs PI control on both speed and current, but Simulink's motor drive block uses hysteresis current control, so I built a PI current controller to match the real hardware. Its output is turned into PWM gate signals for the IGBT inverter.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/ev-control-loop.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/ev-control-loop.webp"
+             alt="Block diagram of the cascaded control loop: speed PI controller, torque limiter, converter, current PI controller, modulating signals, inverter and motor"
+             width="1600" height="295" loading="lazy">
+      </a>
+      <figcaption>Cascaded control: speed PI controller and torque limiter set the current reference; the current PI controller drives the inverter. Click to open full size</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li><strong>Filtering current noise</strong>: I measured the ripple frequency in the unfiltered current, then added a discrete low-pass filter at 550&nbsp;Hz with a 20&nbsp;&micro;s sample time. Too low a cut-off hurts control, so the value was a compromise between noise and stability.</li>
+        <li><strong>Tuning</strong>: I adjusted the speed and current controller gains over many runs until the motor current stayed stable and below the controller's 200&nbsp;A rating.</li>
+      </ul>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/ev-current-tracking.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/ev-current-tracking.webp"
+             alt="Plot of actual phase current against reference current over five seconds, with the actual current overshooting the reference at the start"
+             width="1345" height="535" loading="lazy">
+      </a>
+      <figcaption>Actual against reference current. Tracking is close once running, but the current overshoots the reference at the start, which I noted as a limit of the controller. Click to open full size</figcaption>
+    </figure>
+    </section>
+    <section class="detail-section">
+      <h2>Battery</h2>
+      <p>The accumulator is 90 lithium-ion cells in series, giving 378&nbsp;V. The car has no regenerative braking, so I modelled it as a discharge circuit, with a constant 55&nbsp;A load taken from the motor model.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/ev-battery-discharge.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/ev-battery-discharge.webp"
+             alt="Plot of battery state of charge, voltage and current over time, with state of charge falling linearly to zero at about 1,600 seconds"
+             width="1182" height="519" loading="lazy">
+      </a>
+      <figcaption>State of charge, voltage and current under the constant load. The battery runs for about 26 minutes. Click to open full size</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li><strong>Acceleration event</strong>: four runs of about 6&nbsp;s use only around 24&nbsp;s of that, so the car would not need to go back to the garage to recharge.</li>
+        <li><strong>Endurance event</strong>: at the motor's 80&nbsp;kW maximum the battery would not last, so I recommended running at its 35&nbsp;kW continuous rating, trading performance for range.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>Acceleration event</h2>
+      <p>Using the Simulink vehicle dynamics blocks, I connected the motor to a longitudinal vehicle model through the gear ratio, with aerodynamic drag and rolling resistance, and sized it from the team's 2019 car.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/ev-motor-torque.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/ev-motor-torque.webp"
+             alt="Plot of motor electromagnetic torque over five seconds, rising from about 35 to about 63 newton metres before dropping"
+             width="1182" height="526" loading="lazy">
+      </a>
+      <figcaption>Motor torque during the run, well below the motor's 140&nbsp;N&middot;m rating. Click to open full size</figcaption>
+    </figure>
+      <p>The car covered just over 80&nbsp;m in 5&nbsp;s, so the model predicts it can complete the 75&nbsp;m event in under 5&nbsp;s.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Checks against the hardware ratings</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Component</th><th>Rating</th><th>Result in the model</th></tr></thead>
+          <tbody>
+            <tr><td>Motor controller (BAMOCAR D3)</td><td>200&nbsp;A</td><td>Below</td></tr>
+            <tr><td>IGBT switch</td><td>600&nbsp;A</td><td>Below</td></tr>
+            <tr><td>Accumulator fuse</td><td>360&nbsp;A</td><td>Below</td></tr>
+            <tr><td>Motor torque (EMRAX 208)</td><td>140&nbsp;N&middot;m</td><td>Below</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="detail-section">
+      <h2>What I'd do differently</h2>
+      <ul class="detail-list">
+        <li><strong>Use Simscape Electrical and Driveline</strong> instead of SimPowerSystems, which slowed the simulations a lot.</li>
+        <li><strong>Improve the current controller.</strong> It generates the right signals, but the current overshoots its reference at the start, so it is not yet clear how much it stabilises the current.</li>
+        <li><strong>Add suspension</strong> with Simscape Multibody, to look at bumps and cornering, not just straight-line acceleration.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>Supervisor's feedback</h2>
+      <p>&ldquo;This was a very well managed project and demonstrates significant design ability.&rdquo; The same model-first approach carried through to my <a href="hgv-simulator.html">MSc driver-in-the-loop simulator</a>.</p>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> MATLAB, Simulink, SimPowerSystems, Simulink vehicle dynamics blocks</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

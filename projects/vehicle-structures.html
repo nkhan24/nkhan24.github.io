@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Wishbone Arm Optimisation | Naeem Khan</title>
+  <meta name="description" content="Material selection, topology optimisation and fatigue check of double wishbone suspension arms in HyperMesh, OptiStruct and HyperLife: 34% lighter within a 2 mm displacement limit.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Double Wishbone Arm Optimisation | Naeem Khan">
+  <meta property="og:description" content="Material selection, topology optimisation and fatigue check of double wishbone suspension arms in HyperMesh, OptiStruct and HyperLife: 34% lighter within a 2 mm displacement limit.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/vehicle-structures.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/vs-topology-density.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">MSc Vehicle Structures · Cranfield University · 2025 · Individual</p>
+    <h1 class="detail-title">Double Wishbone Arm Optimisation</h1>
+    <p class="detail-lead">Lighter upper and lower suspension arms for a double wishbone, from material choice through topology optimisation to a fatigue check.</p>
+    <figure class="figure">
+      <a href="../assets/images/projects/vs-topology-density.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/vs-topology-density.webp"
+             alt="OptiStruct element-density plot of the upper and lower suspension arms after topology optimisation, with the retained load paths in red and removed material in green and blue"
+             width="1600" height="1074" loading="lazy">
+      </a>
+      <figcaption>OptiStruct topology result for the upper and lower arms. Red shows the material the optimiser kept as load paths. Click to open full size</figcaption>
+    </figure>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">~34%</span><span class="hl-text">Lighter arms after topology optimisation: 6.887&nbsp;kg to 4.556&nbsp;kg, measured on the redesigned CATIA parts</span></li>
+      <li><span class="hl-num">1.95&nbsp;mm</span><span class="hl-text">Peak displacement at the knuckle, against a 2&nbsp;mm limit in every direction</span></li>
+      <li><span class="hl-num">6061-T6</span><span class="hl-text">Aluminium alloy chosen through Ashby charts and two multi-criteria ranking methods</span></li>
+      <li><span class="hl-num">31,126</span><span class="hl-text">Load cycles in the 30-year fatigue target the arms were assessed against</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>The brief</h2>
+      <p>Choose a material for the upper and lower arms of a double wishbone suspension, cut their mass with topology optimisation while keeping them stiff enough, then check their fatigue life. Individual assignment, Vehicle Structures module, Cranfield MSc, November 2025.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Material selection</h2>
+      <p>The arms need low weight, high stiffness and strength, good fatigue resistance and corrosion resistance. I filtered candidates on Ashby charts in Granta (Young's modulus against density, yield strength against density, and modulus against yield strength), then ranked five shortlisted materials with Simple Additive Weighting and TOPSIS.</p>
+    <figure class="figure">
+      <a href="../assets/images/projects/vs-material-ranking.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/vs-material-ranking.webp"
+             alt="Bar chart of TOPSIS closeness values for five materials under three weightings: without cost and recycling, with manufacturing energy, and with cost and recycling"
+             width="1600" height="767" loading="lazy">
+      </a>
+      <figcaption>TOPSIS ranking of the five shortlisted materials under three weightings. Click to open full size</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li><strong>Without cost and recycling</strong>, carbon fibre composite ranked first. <strong>With cost and recycling</strong>, 6061-T6 aluminium ranked first. <strong>With manufacturing energy</strong>, AISI 4130 steel ranked first.</li>
+        <li><strong>Choice: 6061-T6 aluminium.</strong> Its stiffness-to-weight index was 96.9 against 59.2 for steel, and its strength-to-weight index 6.13 against 2.73. Overall it ranked close to the steel, and the lower mass cuts emissions over the vehicle's life.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>Loads by hand</h2>
+      <p>The load case uses a Honda Accord of about 1,470&nbsp;kg, split into a 367.5&nbsp;kg corner mass. That corner mass at 3&nbsp;g vertical gives 10,815&nbsp;N, and at 1&nbsp;g longitudinal and lateral gives 3,605&nbsp;N.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/vs-free-body.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/vs-free-body.webp"
+             alt="Free-body diagram of the double wishbone, showing reactions at the upper and lower arm chassis mounts, the spring force and the applied wheel forces Fy and Fz"
+             width="1600" height="1116" loading="lazy">
+      </a>
+      <figcaption>Free-body diagram of the suspension. Click to open full size</figcaption>
+    </figure>
+      <p>The full system has seven unknowns and three equilibrium equations, so it is statically indeterminate. Taken alone, the upper arm is determinate with three unknowns. The lower arm has four, because the spring force is also unknown.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Topology optimisation</h2>
+      <p>In HyperMesh and OptiStruct I set both arms as design space, with the objective of minimum mass and a constraint of no more than 2&nbsp;mm displacement in any direction. I then redesigned the arms from the load paths the optimiser left and measured their mass in CATIA.</p>
+    <figure class="figure">
+      <a href="../assets/images/projects/vs-displacement.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/vs-displacement.webp"
+             alt="Displacement contour of the redesigned arms, with a maximum of 1.957 millimetres at the knuckle"
+             width="1600" height="1358" loading="lazy">
+      </a>
+      <figcaption>Displacement result: 1.95&nbsp;mm peak at the knuckle, inside the 2&nbsp;mm limit. Click to open full size</figcaption>
+    </figure>
+    </section>
+    <section class="detail-section">
+      <h2>Fatigue check</h2>
+      <p>I ran a high-cycle S&ndash;N fatigue analysis in HyperLife with a fully reversed stress ratio (R&nbsp;=&nbsp;&minus;1) as the worst case. Cyclic loads came from WLTP drive-cycle accelerations applied to the corner mass, with a 1.5 factor on top. A 30-year life at 15,000 miles a year gives the target of 31,126 cycles.</p>
+      <p>The arms passed the target, but I don't trust the margin. WLTP is a smooth emissions cycle: it has no potholes, kerb strikes or hard braking events, and those set fatigue damage in a real suspension. A 30-year target is also long for a suspension arm. That doubt is why I am <a href="wishbone-reanalysis.html">re-running this study in open-source tools</a>.</p>
+    </section>
+    <section class="detail-section">
+      <h2>What I'd do differently</h2>
+      <ul class="detail-list">
+        <li><strong>Use the performance index to screen, not to decide.</strong> The marker's feedback was that I used it for the final choice when it belongs at the filtering stage.</li>
+        <li><strong>Build the fatigue load spectrum from road events</strong>, not a drive cycle, and discuss the fatigue result in more depth.</li>
+      </ul>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> Granta, HyperMesh, OptiStruct, HyperLife, CATIA V5, Excel</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

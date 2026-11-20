@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadricycle Brake Balance Model | Naeem Khan</title>
+  <meta name="description" content="Personal project: a Python braking model of a two-seat quadricycle, finding the ideal brake balance across road grip and payload, checked against theory.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quadricycle Brake Balance Model | Naeem Khan">
+  <meta property="og:description" content="Personal project: a Python braking model of a two-seat quadricycle, finding the ideal brake balance across road grip and payload, checked against theory.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/quadricycle-braking.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/quad-brake-split-adhesion.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">Personal project · Python and FreeCAD · September 2026 &ndash; present</p>
+    <h1 class="detail-title">Quadricycle Brake Balance Model</h1>
+    <p class="detail-lead">The first design question in my quadricycle vehicle model: where should the brake balance sit, and what does payload do to it?</p>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">55&ndash;71%</span><span class="hl-text">Ideal front brake share across road grip of 0.2 to 0.8, unladen</span></li>
+      <li><span class="hl-num">0.02</span><span class="hl-text">Percentage points between the brake-split sweep and the theoretical optimum</span></li>
+      <li><span class="hl-num">92% &rarr; 83%</span><span class="hl-text">Usable grip with a fixed 65% front split, unladen to fully laden</span></li>
+      <li><span class="hl-num">86.7 &rarr; 96.0&nbsp;m</span><span class="hl-text">Stop from 90&nbsp;km/h at &mu;&nbsp;=&nbsp;0.4 as the car is loaded</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>The project</h2>
+      <p>A self-directed digital design of a two-seat quadricycle, 650&nbsp;kg laden, using free tools: Python for the vehicle model and FreeCAD for the layout. The aim is a driver-in-the-loop simulator on real public roads that predicts ride, handling and powertrain behaviour. So far the model covers coast-down, braking and acceleration. The first design question was brake balance. Started September 2026, separate from the Cranfield group project.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Ideal brake balance</h2>
+      <p>Both axles reach their grip limit together when the front share of brake force equals the static front weight fraction plus the load transferred forward under braking:</p>
+      <p class="equation">&beta;<sub>ideal</sub> = W<sub>f</sub>/W + &mu;h/L</p>
+      <p>Here W<sub>f</sub>/W is the static front weight fraction, &mu; the tyre&ndash;road grip, h the centre-of-gravity height and L the wheelbase (1.70&nbsp;m). The ideal split rises with grip, so a fixed split can only be ideal on one surface.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/quad-brake-split-adhesion.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/quad-brake-split-adhesion.webp"
+             alt="Line chart of maximum deceleration in g against front brake-force share from 45 to 75 percent, for adhesion 0.2, 0.4 and 0.8. The peaks of 0.2, 0.4 and 0.8 g sit at about 55, 61 and 71 percent front"
+             width="1600" height="1000" loading="lazy">
+      </a>
+      <figcaption>Maximum deceleration against front brake-force share on three surfaces. Each peak is the ideal split, and it moves forward as grip rises</figcaption>
+    </figure>
+    </section>
+    <section class="detail-section">
+      <h2>Effect of payload</h2>
+      <p>Each added load moves the centre of gravity rearward and upward. With the brake split fixed at 65% front on a 0.4-grip road, the front axle reaches its limit first in every case:</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Load case</th><th>Mass</th><th>CoG height</th><th>Static front</th><th>Ideal front share</th><th>Deceleration</th><th>Usable grip</th><th>Stop from 90&nbsp;km/h</th></tr></thead>
+          <tbody>
+            <tr><td>Unladen</td><td>450&nbsp;kg</td><td>0.450&nbsp;m</td><td>50.0%</td><td>60.6%</td><td>0.368&nbsp;g</td><td>92%</td><td>86.7&nbsp;m</td></tr>
+            <tr><td>Driver only</td><td>535&nbsp;kg</td><td>0.521&nbsp;m</td><td>47.7%</td><td>59.9%</td><td>0.362&nbsp;g</td><td>90%</td><td>88.1&nbsp;m</td></tr>
+            <tr><td>Two occupants</td><td>620&nbsp;kg</td><td>0.573&nbsp;m</td><td>44.8%</td><td>58.3%</td><td>0.348&nbsp;g</td><td>87%</td><td>91.7&nbsp;m</td></tr>
+            <tr><td>Fully laden</td><td>650&nbsp;kg</td><td>0.583&nbsp;m</td><td>42.6%</td><td>56.3%</td><td>0.332&nbsp;g</td><td>83%</td><td>96.0&nbsp;m</td></tr>
+          </tbody>
+        </table>
+      </div>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/quad-brake-split-loading.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/quad-brake-split-loading.webp"
+             alt="Line chart of maximum deceleration against front brake-force share at adhesion 0.4 for unladen, driver only, two occupants and fully laden cases. Each peaks at 0.4 g, and the peak moves from about 61 to 56 percent front as load increases"
+             width="1600" height="1000" loading="lazy">
+      </a>
+      <figcaption>The same model at &mu;&nbsp;=&nbsp;0.4 for four load cases, from 450&nbsp;kg unladen to 650&nbsp;kg fully laden</figcaption>
+    </figure>
+      <p>With ideal balance the car could use all the grip and stop in about 80&nbsp;m. The fixed 65% split adds about 7&nbsp;m to that unladen and 16&nbsp;m fully laden.</p>
+    </section>
+    <section class="detail-section">
+      <h2>How I checked it</h2>
+      <ul class="detail-list">
+        <li><strong>Against theory</strong>: a sweep of brake split found the optimum within 0.02 percentage points of the formula at &mu;&nbsp;=&nbsp;0.2, 0.4 and 0.8.</li>
+        <li><strong>Against a hand calculation</strong>: the simulated grip-limited stop from 90&nbsp;km/h matched the hand-calculated stopping distance.</li>
+        <li><strong>Against time step</strong>: with brake pressure ramping up, the stop was within 0.031&nbsp;m of the analytical answer at a 0.0025&nbsp;s step, and the error halved each time the step was halved.</li>
+      </ul>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> Python, FreeCAD</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wind Tunnel Testing | Naeem Khan</title>
+  <meta name="description" content="Cranfield wind tunnel work: correcting and integrating base-pressure data on a reference car, and a ride-height sweep of a 35% DrivAer model on a moving ground.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wind Tunnel Testing | Naeem Khan">
+  <meta property="og:description" content="Cranfield wind tunnel work: correcting and integrating base-pressure data on a reference car, and a ride-height sweep of a 35% DrivAer model on a moving ground.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/wind-tunnel.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/aero-drivaer-ride-height.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">MSc Automotive Aerodynamics · Cranfield University · 2026 · Group of five</p>
+    <h1 class="detail-title">Wind Tunnel Testing</h1>
+    <p class="detail-lead">Pressure-tap data on a reference car model, corrected and checked two ways, and a ride-height sweep of a 35% DrivAer model on a moving ground.</p>
+    <figure class="figure figure--narrow">
+      <img src="../assets/images/projects/about-wind-tunnel.webp"
+             alt="A group of MSc students inside Cranfield's wind tunnel behind a scale car model on the rolling road"
+             width="1200" height="1600" loading="lazy">
+      <figcaption>With MSc coursemates in Cranfield's moving-ground wind tunnel</figcaption>
+    </figure>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">25</span><span class="hl-text">Pressure-tap channels corrected after the reference-pressure correction went into LabVIEW with the wrong sign</span></li>
+      <li><span class="hl-num">2.3%</span><span class="hl-text">Largest difference between two integration methods for the axial load coefficient</span></li>
+      <li><span class="hl-num">35%</span><span class="hl-text">Scale of the DrivAer model tested on the moving ground</span></li>
+      <li><span class="hl-num">40&ndash;45&nbsp;mm</span><span class="hl-text">Ride height where the downforce gain from lowering the car levelled off</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>The assignment</h2>
+      <p>A five-person group assignment in the Automotive Aerodynamics module, Cranfield MSc, February 2026. Each experiment had a named owner. I did the pressure-distribution experiment on my own, and the DrivAer moving-ground experiment with one coursemate.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Pressure distribution on a reference car model</h2>
+      <p>A bluff-body reference car with 25 pressure taps in a 5&nbsp;&times;&nbsp;5 grid on its base, tested at 32&nbsp;m/s across a yaw sweep of 0, &plusmn;1, &plusmn;3, &plusmn;5, &plusmn;10, &plusmn;15 and &plusmn;20&deg;, with a baseline and a 10&deg; underbody diffuser.</p>
+      <ul class="detail-list">
+        <li><strong>Fixing the data</strong>: the reference-pressure correction had been entered into LabVIEW before the run as &minus;0.1 instead of +0.1, so every channel carried the wrong offset. I derived the correction, p&nbsp;&minus;&nbsp;p<sub>&infin;</sub>&nbsp;=&nbsp;(p&nbsp;&minus;&nbsp;p<sub>2</sub>)&nbsp;&minus;&nbsp;2(0.1)q<sub>&infin;</sub>, and applied it to all 25 channels.</li>
+        <li><strong>Checking the integration</strong>: I integrated the base pressures into an axial load coefficient with two methods in MATLAB. They agreed within 2.3% at every yaw angle.</li>
+        <li><strong>Result</strong>: the axial coefficient rose steadily with yaw, from 0.241 at 0&deg; to 0.363 at &plusmn;20&deg;. The diffuser raised it compared with the baseline. Published studies show lower drag with a diffuser, and with taps only on the base this test could not resolve why, so I reported the disagreement rather than forcing a fit.</li>
+      </ul>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Yaw (&deg;)</th><th>Rectangular rule</th><th>Midpoint rule</th><th>Difference</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0.241</td><td>0.245</td><td>+1.66%</td></tr>
+            <tr><td>&plusmn;1</td><td>0.244</td><td>0.241</td><td>&minus;1.23%</td></tr>
+            <tr><td>&plusmn;3</td><td>0.253</td><td>0.248</td><td>&minus;1.98%</td></tr>
+            <tr><td>&plusmn;5</td><td>0.263</td><td>0.257</td><td>&minus;2.28%</td></tr>
+            <tr><td>&plusmn;10</td><td>0.301</td><td>0.295</td><td>&minus;1.99%</td></tr>
+            <tr><td>&plusmn;15</td><td>0.336</td><td>0.331</td><td>&minus;1.49%</td></tr>
+            <tr><td>&plusmn;20</td><td>0.363</td><td>0.359</td><td>&minus;1.10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="detail-section">
+      <h2>DrivAer model on a moving ground</h2>
+      <p>A 35% scale DrivAer fastback in Cranfield's 8&nbsp;&times;&nbsp;6&nbsp;ft closed-return tunnel, with a moving belt, boundary-layer suction and a six-component balance, run at up to 35&nbsp;m/s. We tested combinations of spoiler length, spoiler angle and diffuser ramp angle, and swept the ride height from 80&nbsp;mm down to 35&nbsp;mm at a fixed pitch. I analysed the ride-height sweep.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/aero-drivaer-ride-height.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/aero-drivaer-ride-height.webp"
+             alt="Line chart of downforce coefficient against ride height from 80 to 35 millimetres for four DrivAer set-ups. Every set-up gains downforce as it is lowered, then levels off between 45 and 40 millimetres"
+             width="1600" height="900" loading="lazy">
+      </a>
+      <figcaption>Downforce coefficient against ride height for four of the set-ups. The gain levels off at around 40&ndash;45&nbsp;mm. Click to open full size</figcaption>
+    </figure>
+      <p>Ride height had the biggest effect on both lift and drag. Lowering the car squeezed the underbody flow and added downforce, but the gain levelled off at around 40&ndash;45&nbsp;mm in every set-up. A longer diffuser is one way to push that point lower. Drag kept falling slightly as the car came down, with no clear levelling-off.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Why it matters</h2>
+      <p>Both results depend on trusting the measurement. The first needed the data corrected before it meant anything; the second relies on hardware that sets and holds ride height accurately. That is the same habit I bring to simulation work: check the input before believing the output.</p>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> MATLAB, Excel, Cranfield wind tunnels</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

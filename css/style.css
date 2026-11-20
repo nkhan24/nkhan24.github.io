@@ -435,3 +435,7 @@ html { scroll-behavior: smooth; }
   .hero-photo { float: right; width: 240px; height: 240px; margin: 0 0 24px 48px; }
 }
 .hero-facts { clear: both; }
+
+/* ===== 24. Sub-heading inside a section (personal projects) ===== */
+.subsection-title { font-size: 1.25rem; margin: 48px 0 20px; }
+.card-img--dark { background: var(--surface); }   /* dark charts and renders: no white box around them */

@@ -13,6 +13,12 @@ Engineering portfolio of Naeem Khan: vehicle dynamics, driver-in-the-loop simula
 | `projects/ford-wheels.html` | Wheels and jack design and release at Ford (via Caresoft Global) |
 | `projects/gdp-quadricycle.html` | Group design project: quadricycle wheel and tyre selection |
 | `projects/fs-upright.html` | Formula Student front upright and brackets, Lancaster e-Racing |
+| `projects/ev-powertrain.html` | Lancaster MEng individual project: Formula Student EV powertrain model in Simulink |
+| `projects/vehicle-structures.html` | Cranfield Vehicle Structures: double wishbone arm material selection, topology optimisation and fatigue |
+| `projects/wind-tunnel.html` | Cranfield Automotive Aerodynamics: base-pressure analysis and DrivAer ride-height sweep |
+| `projects/aeromap-regression.html` | Personal: F1 25 aero map regression in Python (links to the GitHub repo) |
+| `projects/quadricycle-braking.html` | Personal: quadricycle brake balance model in Python |
+| `projects/wishbone-reanalysis.html` | Personal: double wishbone re-analysis in FreeCAD, PrePoMax and CalculiX (in progress) |
 
 ## How it is built
 
