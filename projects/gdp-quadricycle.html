@@ -128,14 +128,14 @@
       <h2>Tyre life-cycle assessment</h2>
       <p>I wrote the report's life-cycle chapter for the chosen 155/65&nbsp;R13 tyre, from raw materials through use to end of life. The question was where a shared fleet's tyres do most environmental harm, and what that means for the choices made at concept stage.</p>
       <h3>Production</h3>
-      <p>I split the 5.2&nbsp;kg tyre into its materials using published tyre composition data, then applied an emission factor to each. Producing one tyre comes to about 11.3&nbsp;kg of CO<sub>2</sub>, and synthetic rubber and carbon black alone make up almost half of it.</p>
+      <p>I split the 5.2&nbsp;kg tyre into its materials using a published passenger-car tyre composition, then applied a raw-material emission factor to each. The raw materials in one tyre come to about 11.3&nbsp;kg of CO<sub>2</sub>, and synthetic rubber and carbon black alone make up almost half of it. This covers material production only, not the energy used in the tyre factory or transport.</p>
       <figure class="figure figure--chart">
         <a href="../assets/images/projects/gdp-tyre-co2.webp" target="_blank" rel="noopener">
           <img src="../assets/images/projects/gdp-tyre-co2.webp"
-               alt="Bar chart of CO2 from producing one 5.2 kilogram tyre by material: synthetic rubber 3.03 kilograms, carbon black 2.34, textiles 1.64, steel wire 1.43, silica 0.89, natural rubber 0.81, oil 0.45, other 0.34, zinc oxide 0.24, stearic acid 0.09, sulphur 0.04, recycled rubber under 0.01. Total about 11.3 kilograms"
+               alt="Bar chart of CO2 from the raw materials in one 5.2 kilogram tyre, by material: synthetic rubber 3.03 kilograms, carbon black 2.34, textiles 1.64, steel wire 1.43, silica 0.89, natural rubber 0.81, oil 0.45, other 0.34, zinc oxide 0.24, stearic acid 0.09, sulphur 0.04, recycled rubber under 0.01. Total about 11.3 kilograms"
                width="1600" height="900" loading="lazy">
         </a>
-        <figcaption>CO<sub>2</sub> from producing one tyre, by material. Click to open full size</figcaption>
+        <figcaption>CO<sub>2</sub> from the raw materials in one tyre. Click to open full size</figcaption>
       </figure>
       <h3>Use: tyre wear particles</h3>
       <p>In use, rolling resistance drives energy consumption, and wear releases fine particles that affect air quality. I estimated the particles with the EMEP/EEA emission inventory method:</p>
@@ -143,7 +143,7 @@
         <li><strong>Emission factor</strong>: 8.5&nbsp;mg/km of total suspended particles, the smallest combustion-engine car class, as the powertrain team was using a petrol or hydrogen engine. I carried the published range of 5.3&ndash;12.8&nbsp;mg/km through as the uncertainty.</li>
         <li><strong>Speed correction</strong>: wear per kilometre is highest below 40&nbsp;km/h (factor 1.39) and falls to 0.90 above 90&nbsp;km/h.</li>
         <li><strong>Particle size</strong>: 60% of the particles count as PM10 and 42% as PM2.5, particles small enough to travel further and potentially enter the bloodstream.</li>
-        <li><strong>Use case</strong>: about 5,000&nbsp;km a year per vehicle, the shuttle run between Cranfield and Milton Keynes Central station.</li>
+        <li><strong>Use case</strong>: about 5,000&nbsp;km a year per vehicle (around 14&nbsp;km a day), based on the run between Cranfield and Milton Keynes Central station.</li>
       </ul>
       <div class="table-wrap">
         <table class="data-table">
@@ -155,9 +155,9 @@
           </tbody>
         </table>
       </div>
-      <p>Each vehicle's output is small, but it scales directly with fleet size, because the whole fleet runs at the same time.</p>
+      <p>Each vehicle's output is small, but it scales directly with fleet size and distance driven.</p>
       <h3>Fleet tyre replacement</h3>
-      <p>With a tyre life of 27,000&ndash;33,000&nbsp;km and about &pound;45 per budget tyre, I sized the yearly replacement load for three fleet sizes:</p>
+      <p>With a tyre life of 27,000&ndash;33,000&nbsp;km and about &pound;45 per budget tyre, I sized the yearly replacement load for three fleet sizes, rounding up to whole tyres:</p>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr><th>Fleet</th><th>Tyres per year</th><th>Yearly cost</th></tr></thead>
@@ -170,7 +170,7 @@
       </div>
       <h3>End of life and conclusion</h3>
       <p>Retreading, shredding for material recovery, energy recovery and pyrolysis all reduce the burden, but the literature shows end of life matters far less than production and use. So the biggest levers sit at concept stage: low rolling resistance and the tyre&rsquo;s materials.</p>
-      <p class="note">Limits: the material split and emission factors come from published passenger-car tyre studies, not supplier data for this tyre, and end of life was reviewed but not quantified. Sources: Kokko (2016), greenhouse gas emissions from tyre production; Piotrowska et al. (2019), <em>Materials</em> 12(24); Air Quality Expert Group (2019), non-exhaust emissions from road traffic; EMEP/EEA (2023), tyre and brake wear guidebook chapter.</p>
+      <p class="note">Limits: the material split comes from a larger passenger-car tyre and the emission factors from published studies, not supplier data for this tyre; the production figure covers raw materials only; and end of life was reviewed but not quantified. Sources: Piotrowska et al. (2019), <em>Materials</em> 12(24), for the material split; Kokko (2016), greenhouse gas emissions from tyre production, Table 5-7, for the emission factors; Air Quality Expert Group (2019), non-exhaust emissions from road traffic; EMEP/EEA (2023), guidebook chapter 1.A.3.b.vi&ndash;vii, Tables 3-4 and 3-5 and equation 5, for tyre wear.</p>
     </section>
 
     <section class="detail-section">
