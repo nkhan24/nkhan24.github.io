@@ -14,6 +14,7 @@ Engineering portfolio of Naeem Khan: vehicle dynamics, driver-in-the-loop simula
 | `projects/gdp-quadricycle.html` | Group design project: quadricycle wheel and tyre selection |
 | `projects/fs-upright.html` | Formula Student front upright and brackets, Lancaster e-Racing |
 | `projects/ev-powertrain.html` | Lancaster MEng individual project: Formula Student EV powertrain model in Simulink |
+| `projects/loft-e.html` | Lancaster MEng ENGR 445 group project with Cumbria Loft Boarding: LOFT-E thermal analysis |
 | `projects/vehicle-structures.html` | Cranfield Vehicle Structures: double wishbone arm material selection, topology optimisation and fatigue |
 | `projects/wind-tunnel.html` | Cranfield Automotive Aerodynamics: base-pressure analysis and DrivAer ride-height sweep |
 | `projects/aeromap-regression.html` | Personal: F1 25 aero map regression in Python (links to the GitHub repo) |

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOFT-E Loft Leg Thermal Analysis | Naeem Khan</title>
+  <meta name="description" content="ENGR 445 group project with Cumbria Loft Boarding: ANSYS steady-state thermal simulation and U-value analysis of the LOFT-E raised loft leg. The report is published on the company's product page.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="LOFT-E Loft Leg Thermal Analysis | Naeem Khan">
+  <meta property="og:description" content="ENGR 445 group project with Cumbria Loft Boarding: ANSYS steady-state thermal simulation and U-value analysis of the LOFT-E raised loft leg. The report is published on the company's product page.">
+  <meta property="og:url" content="https://nkhan24.github.io/projects/loft-e.html">
+  <meta property="og:image" content="https://nkhan24.github.io/assets/images/projects/loft-e-temperature.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index.html" class="nav-logo">NK</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail">
+
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+    <p class="eyebrow">MEng Industry Project · Lancaster University with Cumbria Loft Boarding · 2021 · Group of five</p>
+    <h1 class="detail-title">LOFT-E Loft Leg Thermal Analysis</h1>
+    <p class="detail-lead">Simulating how much heat a steel loft-boarding leg lets through the insulation, and what it would take to meet building regulations.</p>
+    <figure class="figure">
+      <a href="../assets/images/projects/loft-e-temperature.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/loft-e-temperature.webp"
+             alt="ANSYS steady-state thermal result for a section of loft with the LOFT-E leg, timber and insulation, running from 22 degrees at the ceiling to 2 degrees at the loft floor"
+             width="1508" height="951" loading="lazy">
+      </a>
+      <figcaption>Steady-state thermal result: 22&nbsp;&deg;C at the room ceiling, 2&nbsp;&deg;C at the loft floor. Click to open full size</figcaption>
+    </figure>
+    <ol class="highlight-list detail-figures">
+      <li><span class="hl-num">0.16</span><span class="hl-text">W/m&sup2;K: the U-value a loft ceiling has to meet. A steel leg pushed its local section to 0.25</span></li>
+      <li><span class="hl-num">&le;&nbsp;0.92</span><span class="hl-text">W/m&middot;K: the thermal conductivity a leg material would need to meet it</span></li>
+      <li><span class="hl-num">14</span><span class="hl-text">Mesh refinement steps, taking average element quality from 0.59 to 0.86</span></li>
+      <li><span class="hl-num">252.6&nbsp;kg</span><span class="hl-text">Load on a single structural-steel leg before yield, from the group's stress analysis</span></li>
+    </ol>
+    <section class="detail-section">
+      <h2>The brief</h2>
+      <p>LOFT-E is an adjustable steel leg that holds loft boarding above the insulation. Cumbria Loft Boarding, part of UK Loft Boarding Ltd, asked our group to find the leg's strength and thermal limits and suggest improvements, as physical testing had been postponed by COVID-19. Group of five, ENGR&nbsp;445 Leadership in Technology, Lancaster University, March 2021.</p>
+      <p>The company now publishes our report on its <a href="https://lancasterloftboarding.co.uk/loft-e" target="_blank" rel="noopener">LOFT-E product page</a>.</p>
+      <p><strong>My part: the thermal analysis.</strong> The group split into a mechanical team and a thermal team.</p>
+    </section>
+    <section class="detail-section">
+      <h2>Setting up the thermal model</h2>
+      <p>The leg is never used alone, so we modelled one block of the loft: room ceiling, foundation timber, the leg, insulation, loft timber and boarding. That kept the model small enough to mesh finely in ANSYS.</p>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/loft-e-setup.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/loft-e-setup.webp"
+             alt="Diagram of the layers in the thermal model: room ceiling, foundation timber support, component surrounded by insulation, loft timber support and loft floor boarding, hot at the bottom and cold at the top"
+             width="1512" height="892" loading="lazy">
+      </a>
+      <figcaption>The layers in the model, from the warm room below to the cold loft above</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li><strong>Boundary conditions</strong>: 22&nbsp;&deg;C at the ceiling, 2&nbsp;&deg;C at the loft floor, and a 5&nbsp;W heat flow on the ceiling face.</li>
+        <li><strong>Materials</strong>: steel leg (60.5&nbsp;W/m&middot;K), oak timber, plasterboard and insulation (0.044&nbsp;W/m&middot;K). The company never sent its material data, so the leg was modelled in a generic structural steel.</li>
+        <li><strong>Mesh</strong>: the default mesh was poor (average element quality 0.59). Over 14 refinement steps, using element sizing on the rod, saddles and timber and hex-dominant meshing, quality rose to 0.86, with skewness down from 0.51 to 0.21.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>What the simulation showed</h2>
+    <figure class="figure">
+      <a href="../assets/images/projects/loft-e-heat-flux.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/loft-e-heat-flux.webp"
+             alt="Total heat flux plots of the LOFT-E leg, showing heat concentrating where the bottom saddle meets the rod and running up the rod"
+             width="1529" height="1229" loading="lazy">
+      </a>
+      <figcaption>Heat flux: heat concentrates where the bottom saddle meets the rod, and the rod carries it into the loft. Click to open full size</figcaption>
+    </figure>
+      <ul class="detail-list">
+        <li>The steel rod is the main path for heat from the room into the loft, with the steepest temperature drop, about 14&nbsp;&deg;C, between the ceiling and the bottom saddle.</li>
+        <li>The temperature pattern stayed the same across a range of temperature differences, so the geometry, not the conditions, sets where heat is lost.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>U-values and material choice</h2>
+      <p>A loft ceiling in an existing home needs a U-value of 0.16&nbsp;W/m&sup2;K or less. For one leg in a 0.6&nbsp;&times;&nbsp;1.2&nbsp;m section of loft, the insulation alone gives 0.148. Adding the steel leg raises it to 0.25. The same model was then run across a range of materials and thermal conductivities:</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Leg material</th><th>Thermal conductivity (W/m&middot;K)</th><th>U-value of the section (W/m&sup2;K)</th></tr></thead>
+          <tbody>
+            <tr><td>Structural steel</td><td>60.5</td><td>0.255</td></tr>
+            <tr><td>Stainless steel 316</td><td>14.58</td><td>0.224</td></tr>
+            <tr><td>Titanium alloy Ti-6Al-4V</td><td>7.19</td><td>0.203</td></tr>
+            <tr><td>Concrete</td><td>2.93</td><td>0.179</td></tr>
+            <tr><td>HDPE</td><td>0.48</td><td>0.154</td></tr>
+          </tbody>
+        </table>
+      </div>
+    <figure class="figure figure--chart">
+      <a href="../assets/images/projects/loft-e-materials.webp" target="_blank" rel="noopener">
+        <img src="../assets/images/projects/loft-e-materials.webp"
+             alt="Chart of temperature difference at four sample points along the leg for seven materials, with concrete, titanium and stainless steel holding the largest temperature differences"
+             width="1542" height="1447" loading="lazy">
+      </a>
+      <figcaption>Temperature difference along the leg for each material. A larger difference means less heat reaches the loft. Click to open full size</figcaption>
+    </figure>
+      <p>A curve fitted through the results (R&sup2;&nbsp;0.9999) shows the leg material needs a thermal conductivity of 0.92&nbsp;W/m&middot;K or less to meet 0.16. No metal does. Of the steels, stainless steel 316 kept the most heat in the room; a plastic leg would meet the target but would need its strength checked.</p>
+    </section>
+    <section class="detail-section">
+      <h2>The mechanical side (group)</h2>
+      <ul class="detail-list">
+        <li>A single structural-steel leg could carry 2,477.7&nbsp;N (252.6&nbsp;kg) before yield, or 126.3&nbsp;kg with a factor of safety of 2.</li>
+        <li>Off-centre bending was the weak point: the structural-steel leg's factor of safety fell below 1 after about 430&nbsp;N, so the group recommended physical bending tests.</li>
+        <li>Low alloy steel 4140 roughly doubled that, to about 870&nbsp;N, so it was suggested where uneven loading is likely.</li>
+      </ul>
+    </section>
+    <section class="detail-section">
+      <h2>What I'd do differently</h2>
+      <ul class="detail-list">
+        <li>The marker pointed out that a full U-value comparison should also ask whether fewer legs would do, since the leg is conservatively sized for load.</li>
+        <li>Report the direction of thermal stress, not just equivalent stress: cooling at the top puts the rod in tension, which partly offsets the compressive load.</li>
+        <li>Get the real material data from the company before modelling, and back the simulations with physical tests.</li>
+      </ul>
+    </section>
+    <p class="detail-tools"><strong>Tools:</strong> ANSYS Workbench (steady-state thermal and static structural), SolidWorks, Excel</p>
+    <a class="back-link" href="../index.html#projects">&larr; All projects</a>
+
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>
