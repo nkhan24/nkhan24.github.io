@@ -149,6 +149,20 @@
       <p>The framework works as a real-time tool for comparing rollover proximity across configurations. It is not yet a validated warning or driver-training system.</p>
     </section>
 
+    <!-- ===== Marker feedback ===== -->
+    <section class="detail-section">
+      <h2>What the markers said</h2>
+      <blockquote class="research-q">&ldquo;Good and technically ambitious project. The student has developed a complete driver-in-the-loop simulation platform, integrated multiple modelling domains and demonstrated a good understanding of heavy vehicle dynamics and rollover behaviour. The work is particularly good in its modelling methodology, verification process and treatment of parameter uncertainty.&rdquo;</blockquote>
+      <blockquote class="research-q">&ldquo;The effort involved in developing a vehicle dynamics model, building a simulation environment, and integrating this with real hardware represents a substantial achievement. Overall, this is a very good MSc thesis that successfully addresses a challenging and practically relevant engineering problem.&rdquo;</blockquote>
+      <p>They also pointed to what would make it stronger, and I agree with them:</p>
+      <ul class="detail-list">
+        <li><strong>Validation</strong>: the test data were recorded without the roof asset, which limits confidence in the final rollover predictions. A configuration-matched test is the first next step.</li>
+        <li><strong>Roll parameters</strong>: having replaced the inherited roll inertia, I should have backed the new value with the raw test data, and questioned whether the roll stiffness and damping from the same identification still hold.</li>
+        <li><strong>Unexplained features</strong>: a short transient in lateral acceleration at about 0.3&nbsp;s, and a measured roll excursion larger than the logger's stated accuracy, both needed more investigation.</li>
+        <li><strong>Focus</strong>: some sections, such as the open-loop response and sensitivity results, could be shorter and draw out the engineering insight more directly.</li>
+      </ul>
+    </section>
+
     <!-- ===== 7. Gallery ===== -->
     <section class="detail-section">
       <h2>On the airfield</h2>
